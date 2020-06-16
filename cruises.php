@@ -120,7 +120,7 @@ BARCELONA</span>
                              <h4>SPANISH SUNSETS</h4>
                             <p>17.07.2020</p>
                             <p>35 days/$3 7000</p>
-                            <p>MONTE CARLO
+                            <p>MONTE CARLO 4
 TO
 BARCELONA</span>
                         </div>
