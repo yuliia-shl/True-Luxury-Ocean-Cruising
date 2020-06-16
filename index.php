@@ -1,75 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>Ocean</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="cssload-container">
-            <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
-        </div>
-    </div>
-
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="palatin-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="palatinNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.php" class="nav-brand"><img src="img/core-img/trip.png" alt=""></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- close btn -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="find_cruise.php">Find a Cruise</a></li>
-                                    <li><a href="#contact">Contact us</a></li>
-                                    <li><a href="request_info.php">Request information</a></li>   
-                                    <li><a href="login.php"><img src="https://img.icons8.com/material-outlined/24/000000/writer-male.png"/></a></li>                                 
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+<?php 
+include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
+?>
 
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
@@ -131,13 +62,7 @@
         </div>
     </section>
    
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  
 
     <section class="about-us-area">
         <div class="container">
@@ -287,69 +212,12 @@
 
 
 
-    <!-- ##### Contact Area Start ##### -->
-    <section class="contact-area d-flex flex-wrap align-items-center">
-        <div class="home-map-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325518.6878344313!2d30.252510061496128!3d50.401699044222816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce88e35e395f%3A0xc63774cf5da5a434!2z0KHQvtCx0L7RgCDQodC-0YTRltGPINCa0LjRl9Cy0YHRjNC60LA!5e0!3m2!1sru!2sua!4v1592307908807!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-        <!-- Contact Info -->
-        <div id="contact" class="contact-info">
-            <div class="section-heading wow fadeInUp" data-wow-delay="100ms">
-                <div class="line-"></div>
-                <h2>Contact Info</h2>
-                <p>If you have any further questions, please do not hesitate to contact us.</p>
-            </div>
-            <h4 class="wow fadeInUp" data-wow-delay="300ms">Kyiv, Ukrain, Volodimirska str.24 <br><br><p><h5>HOURS OF OPERATION
-                    WEEKDAYS:<h5/></p>
-                    <p>9:30am - 6:00 pm</p><p>
-                    SATURDAY:
-                    Closed</p>
-                    <p>SUNDAY: Closed</p></h4><br><br>
-            <h5 class="wow fadeInUp" data-wow-delay="400ms">+38 073 47 13 708</h5>
-            <h5 class="wow fadeInUp" data-wow-delay="500ms">mail@gmail.com</h5>
-            <!-- Social Info -->
-            <div class="social-info mt-50 wow fadeInUp" data-wow-delay="600ms">
-                <a href="https://www.pinterest.com/carnivalcruise/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/ilovecruiseships/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/princesscruises"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://dribbble.com/tags/cruise_ship"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Contact Area End ##### -->
+    
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-lg-5">
-                    <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img src="img/core-img/trip.png" alt=""></a>
-                        <p>Enjoy special Single Supplements starting at only 10% above the advertised per person fare on select voyages. Embark on a solo journey to discover the awe-inspiring wonders of America to the history in Northern Europe to the sun-kissed beaches of the Mediterranean to the iconic landmarks of Canada … the choice is yours. </p>
-                    </div>
-                </div>
-
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="footer-widget-area mt-50">
-                        <h6 class="widget-title mb-5">Find us on the map</h6>
-                        <img src="img/bg-img/footer-map.png" alt="">
-                    </div>
-                </div>
-
-
-                <!-- Copywrite Text -->
-                <div class="col-12">
-                    <div class="copywrite-text mt-30">
-                        <p><a href="#">&copy;<script>document.write(new Date().getFullYear());</script> Team №1/module№3 | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> and help of <a href="https://colorlib.com" target="_blank">EduCoin curses</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/parts/contact_us.php';
+include $_SERVER['DOCUMENT_ROOT'].'/parts/footer.php';
+?>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
