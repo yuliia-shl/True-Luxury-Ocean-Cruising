@@ -3,9 +3,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . "/parts/header.php";
 
 ?>
-
-
-    <!-- ##### Rooms Area Start ##### -->
+    
     <section class="rooms-area section-padding-100-0">
         <div class="container">
             <div class="row justify-content-center">
