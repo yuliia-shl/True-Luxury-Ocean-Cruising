@@ -51,8 +51,8 @@
                                     <li class="active"><a href="/index.php">Home</a></li>
                                     <li><a href="/cruises.php">Find a Cruise</a></li>
                                     <li><a href="/index.php#contact">Contact us</a></li>
-                                    <li><a href="/request_info.php">Request information</a></li>   
-                                    <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>                                 
+                                    <li><a href="/request_info.php">Request information</a></li>
+                                    <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
