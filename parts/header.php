@@ -49,7 +49,7 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="find_cruise.php">Find a Cruise</a></li>
+                                    <li><a href="cruises.php">Find a Cruise</a></li>
                                     <li><a href="#contact">Contact us</a></li>
                                     <li><a href="request_info.php">Request information</a></li>   
                                     <li><a href="login.php"><img src="https://img.icons8.com/material-outlined/24/000000/writer-male.png"/></a></li>                                 
