@@ -12,10 +12,10 @@
     <title>Ocean</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="/img/core-img/boat.png">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 
 </head>
 
@@ -30,7 +30,7 @@
                     <nav class="classy-navbar justify-content-between" id="palatinNav">
 
                         <!-- Nav brand -->
-                        <a href="index.php" class="nav-brand"><img src="img/core-img/trip.png" alt=""></a>
+                        <a href="/index.php" class="nav-brand"><img src="/img/core-img/trip.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -48,11 +48,11 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="find_cruise.php">Find a Cruise</a></li>
-                                    <li><a href="#contact">Contact us</a></li>
-                                    <li><a href="request_info.php">Request information</a></li>   
-                                    <li><a href="login.php"><img src="https://img.icons8.com/material-outlined/24/000000/writer-male.png"/></a></li>                                 
+                                    <li class="active"><a href="/index.php">Home</a></li>
+                                    <li><a href="/cruises.php">Find a Cruise</a></li>
+                                    <li><a href="/index.php#contact">Contact us</a></li>
+                                    <li><a href="/request_info.php">Request information</a></li>   
+                                    <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>                                 
                                 </ul>
                             </div>
                             <!-- Nav End -->
