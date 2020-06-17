@@ -3,7 +3,7 @@
 
     <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
         <!-- Thumbnail -->
-        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/<?php echo $cruis['images']; ?>);"></div>
+        <div class="bg-thumbnail bg-img" style="background-image: url(/img/bg-img/<?php echo $cruis['images']; ?>);"></div>
         <!-- Price -->
         <p class="price-from">From $<?php echo $cruis['price']; ?>/night</p>
         <!-- Rooms Text -->
