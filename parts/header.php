@@ -1,3 +1,7 @@
+<?php
+    include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +56,21 @@
                                     <li><a href="/cruises.php">Find a Cruise</a></li>
                                     <li><a href="/index.php#contact">Contact us</a></li>
                                     <li><a href="/request_info.php">Request information</a></li>
-                                    <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                    <?php
+                                    //Если пользователь Авторизован, то выводим слово Exit
+                                    if(isset ($_COOKIE["login"])) {
+                                        $sql = "SELECT * FROM users WHERE id=" . $_COOKIE["login"];
+                                        $result = mysqli_query($conn, $sql);
+                                        $user = mysqli_fetch_assoc($result);
+                                        ?>
+                                        <li><a href="/users/logout.php"> Exit &#8658;</a></li>
+                                      <?php
+                                    } else { //Если НЕ Авторизован - товыводим лого
+                                      ?>
+                                        <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                      <?php
+                                    }
+                                  ?>
                                 </ul>
                             </div>
                             <!-- Nav End -->
