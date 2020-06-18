@@ -27,12 +27,12 @@ $count_rows = $result->num_rows;
     	while ( $num_link <= $count_link ) {
         		?>
 
-        		<li class="
+        		<li class="page-link 
         			<?php if( $num_activ_link == 0){
         				echo 'active';
         				$num_activ_link = 1;
         			}?>" id="page-<?php echo $num_link + 1; ?>">
-	        		<div class="page-link" id="pagination-block" data-link="/modules/cruises/get_more.php?page=<?php echo $num_link; ?>" onclick="goToPage(this);"><?php echo $num_link + 1; ?></div>
+	        		<div id="pagination-block" data-link="/modules/cruises/get_more.php?page=<?php echo $num_link; ?>" onclick="goToPage(this);"><?php echo $num_link + 1; ?></div>
 	        	</li>
 
         		<?php
