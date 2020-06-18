@@ -23,9 +23,9 @@ function goToPage(elem) {
 		var page = document.querySelector("#page-" + i);
 
 		if( i == num_page ){
-			page.className = "page-item active";
+			page.className = "page-link active";
 		}else{
-			page.className = "page-item";
+			page.className = "page-link";
 		}
 		
 	}
