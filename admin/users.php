@@ -26,46 +26,51 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		  <!--Table head-->
 		  <thead>
 		    <tr>
-		      <th>#</th>
+		      <th>#id</th>
 		      <th>Name</th>
 		      <th>Phone</th>
 		      <th>Email</th>
-		      <th>Message</th>
-		      <th>Time</th>
-		      <th>Options</th>
-		      <th>Status</th>
+		      <th>Verification</th>
 		    </tr>
 		  </thead>
 		  <!--Table head-->
 
 		  <!--Table body-->
 		  <tbody>
-		    
-		  	<tr>
-		        <td>ййй</td>
-		        <td>ццц</td>
-		        <td>кккк</td>
-		        <td>еее</td>
-		        <td>ннн</td>
-		        <td>ггг</td>
-		        <td>
-		        	<div class="btn-group" role="group" aria-label="Basic example"></div>
-		            <div class="btn btn-danger">Need unswer</div>  
-		            <div class="btn btn-success">Already answered</div> 
-		        </td>
-		        <td>
-		          <div class="btn-group" role="group" aria-label="Basic example"></div>
-	              <div class="btn btn-danger">NEW</div>  
-	              <div class="btn btn-success">READY</div>  
-		        </td>
-		    </tr>
+		    <?php
+            	// Делаем вывод пользователей 
+				$sql = "SELECT * FROM users";
+				$result = $conn->query($sql);
+				// пока есть кол-во результатов (пользователей)
+				while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
+					<tr>
+                        <td><?php echo $row ['id'] ?></td>
+                        <td><?php echo $row ['name'] ?></td>
+                        <td><?php echo $row ['phone'] ?></td>
+                        <td><?php echo $row ['email'] ?></td>
+                        <?php
+			              if ($row['verifided'] == "1") {
+			                ?>
+			              	<td>YES</td> 
+			                <?php
+			              } else {
+			                ?>
+			              	<td>NO</td>
+			                <?php  
+			              }
+			              ?>
+                        <!-- <td><?php echo $row ['email'] ?></td> -->
+                    </tr>
+                  <?php
+                }
+            ?>
 		  </tbody>
 		  <!--Table body-->
 		</table>
 	</div>
 	<!--Table-->
 </div>
-
 
 
 <?php
