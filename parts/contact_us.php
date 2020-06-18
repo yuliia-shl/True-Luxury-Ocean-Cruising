@@ -1,3 +1,6 @@
+<?php
+$page = "contact_us";
+?>
 <!-- ##### Contact Area Start ##### -->
     <section class="contact-area d-flex flex-wrap align-items-center">
         <div class="home-map-area">
