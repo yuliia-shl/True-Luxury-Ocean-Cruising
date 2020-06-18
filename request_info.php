@@ -1,4 +1,5 @@
 <?php 
+$page = "request_info";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 ?>

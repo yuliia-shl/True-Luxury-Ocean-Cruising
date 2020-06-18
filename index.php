@@ -1,4 +1,5 @@
 <?php 
+$page = "index";
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 ?>
 

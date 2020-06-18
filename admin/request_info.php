@@ -34,7 +34,7 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="./dashboard.html">
               <i class="now-ui-icons design_app"></i>
               <p>Home</p>
@@ -46,8 +46,8 @@
               <p>Users</p>
             </a>
           </li>
-          <li>
-            <a href="request_info.php">
+          <li class="active">
+            <a href="option/request_info.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Request information</p>
             </a>
