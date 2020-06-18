@@ -52,7 +52,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
         <td><?php echo $row ['Time']?></td>
         <td>
           <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="option/request_info/details.php?id=<?php echo $row ['id'] ?>" type="button" class="btn btn-info">info</a>
+            <a href="/admin/option/request_info/details.php?id=<?php echo $row ['id'] ?>" type="button" class="btn btn-info">info</a>
           </div>
         </td>
         <td>
