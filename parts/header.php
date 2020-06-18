@@ -52,10 +52,18 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="/index.php">Home</a></li>
-                                    <li><a href="/cruises.php">Find a Cruise</a></li>
-                                    <li><a href="/index.php#contact">Contact us</a></li>
-                                    <li><a href="/request_info.php">Request information</a></li>
+                                    <li <?php if($page == "home"){ echo "class='active'"; }?>>
+                                        <a href="/index.php">Home</a>
+                                    </li>
+                                    <li <?php if($page == "cruises"){ echo "class='active'"; }?>>
+                                        <a href="/cruises.php">Find a Cruise</a>
+                                    </li>
+                                    <li <?php if($page == "home"){ echo "class='active'"; }?>>
+                                        <a href="/index.php#contact">Contact us</a>
+                                    </li>
+                                    <li <?php if($page == "request_info"){ echo "class='active'"; }?>>
+                                        <a href="/request_info.php">Request information</a>
+                                    </li>
                                     <?php
                                     //Если пользователь Авторизован, то выводим слово Exit
                                     if(isset ($_COOKIE["login"])) {
@@ -67,11 +75,11 @@
                                       <?php
                                     } else { //Если НЕ Авторизован - товыводим лого
                                       ?>
-                                        <li><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                        <li <?php if($page == "login"){ echo "class='active'"; }?>><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
                                       <?php
                                     }
                                   ?>
-                                    <li  class="basket">
+                                    <li  class="basket" <?php if($page == "basket"){ echo "class='active'"; }?>>
                                         
                                             <a class="nav-link basket-a" href="/basket.php">
                                                 <img src="/img/bg-img/cart.svg" width="32" alt="" >
