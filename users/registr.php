@@ -1,4 +1,5 @@
 <?php 
+$page = "login";
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 
@@ -33,18 +34,37 @@ if( isset($_GET['u_code']) ) {
 if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" 
 	// и если поля Имя, телефон, почта и пароль не пусты
 	&& $_POST['usname'] !="" && $_POST['usphone'] !="" && $_POST['usmail'] !="" && $_POST['pass'] !="") {
-	// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
-	$password = md5($_POST['pass']);
-	// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
-	$u_code = generateRandomString(20);
-	
-	// Регистрация
-	$sql = "INSERT INTO users (name, phone, email, password, confirm_code) VALUES ('" . $_POST['usname'] . "', '" . $_POST['usphone'] . "', '" . $_POST['usmail'] . "', '" . $password . "', '$u_code')";
 
-	if($conn->query($sql)) {
-		echo "<h3>Successfully registered.</h3>";
-		$link = "<a href='http://ocean/registr.php?u_code=$u_code'>Confirm</a>";
-		mail($_POST['usmail'], 'Registration', $link);
+	//вытягиваем инфо из БД из таблицы users, где телефон == телефону, который указал пользователь
+	$sql = "SELECT * FROM users WHERE email LIKE '" . $_POST["usmail"] . "' ";
+	// по умолчанию user_id = 0
+	$user_id = 0; 
+	$result = $conn->query($sql); // получаем инфо из БД
+
+	// Если пользователь найден в БД
+	if($result->num_rows > 0) {
+		 $user = mysqli_fetch_assoc($result); //получаем результат
+		 // $user_id = $user['id']; // записываем айди пользователя, которого нашли в БД
+		echo "<h3>Account already exists!</h3>";
+	} else { 
+		// Если пользователь НЕ найден в БД, то добавляем данные в БД users
+		// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
+		$password = md5($_POST['pass']);
+		// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
+		$u_code = generateRandomString(20);
+		
+		// Регистрация
+		$sql = "INSERT INTO users (name, phone, email, password, confirm_code) VALUES ('" . $_POST['usname'] . "', '" . $_POST['usphone'] . "', '" . $_POST['usmail'] . "', '" . $password . "', '$u_code')";
+
+		// Если данные добавились в БД, то выводим сообщение
+		if($conn->query($sql)) {
+			echo "<h3>Successfully registered.</h3>";
+			$link = "<a href='http://ocean/registr.php?u_code=$u_code'>Confirm</a>";
+			mail($_POST['usmail'], 'Registration', $link);
+			$user_id = $conn->insert_id;
+		} else {
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
 	}
 } 
 
