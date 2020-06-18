@@ -1,5 +1,5 @@
 <?php 
-$page = "index";
+$page = "home";
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 ?>
 
@@ -28,7 +28,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-5.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/bg-img/bg-5.jpg);"></div>
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-9">

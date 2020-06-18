@@ -58,8 +58,8 @@
                                     <li <?php if($page == "cruises"){ echo "class='active'"; }?>>
                                         <a href="/cruises.php">Find a Cruise</a>
                                     </li>
-                                    <li <?php if($page == "home"){ echo "class='active'"; }?>>
-                                        <a href="/index.php#contact">Contact us</a>
+                                    <li <?php if($page == "contact_us"){ echo "class='active'"; }?>>
+                                        <a href="/index.php#contact_us">Contact us</a>
                                     </li>
                                     <li <?php if($page == "request_info"){ echo "class='active'"; }?>>
                                         <a href="/request_info.php">Request information</a>

@@ -35,7 +35,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="/admin">
               <i class="now-ui-icons design_app"></i>
               <p>Home</p>
             </a>
