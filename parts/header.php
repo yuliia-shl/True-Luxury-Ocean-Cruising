@@ -71,24 +71,20 @@
                                         $result = mysqli_query($conn, $sql);
                                         $user = mysqli_fetch_assoc($result);
                                         ?>
-                                        <li><a href="/users/logout.php"> Exit &#8658;</a></li>
+                                        <li><a style="width: 69px; text-align: center;" href="/modules/users/logout.php"> Exit &#8658;</a></li>
                                       <?php
                                     } else { //Если НЕ Авторизован - товыводим лого
                                       ?>
-                                        <li <?php if($page == "login"){ echo "class='active'"; }?>><a href="/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                        <li <?php if($page == "login"){ echo "class='active'"; }?>><a style="width: 69px; text-align: center;" href="/modules/users/login.php"><img src="/img/core-img/user.png"/></a></li>
                                       <?php
                                     }
                                   ?>
                                     <li  class="basket" <?php if($page == "basket"){ echo "class='active'"; }?>>
-                                        
                                             <a class="nav-link basket-a" href="/basket.php">
                                                 <img src="/img/bg-img/cart.svg" width="32" alt="" >
                                                 <span class="basket-span">1</span>
                                             </a>
-                                        
-                                        
                                     </li>
-
                                 </ul>
                             </div>
                             

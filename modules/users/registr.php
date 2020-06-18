@@ -24,7 +24,7 @@ if( isset($_GET['u_code']) ) {
 		if($conn->query($sql)) {
 			// echo "User verifided!";
 			echo "<script>alert(\"User verifided!\");</script>";
-			header("Location: /users/login.php");
+			header("Location: /modules/users/login.php");
 		}
 	}
 }
@@ -58,9 +58,9 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 
 			if($conn->query($sql)) {
 					echo "<h3>Successfully registered.</h3>";
-					$link = "<a href='http://ocean/users/registr.php?u_code=$u_code'>Confirm</a>";
+					$link = "<a href='http://ocean/modules/users/registr.php?u_code=$u_code'>Confirm</a>";
 					mail($_POST['usmail'], 'Registration', $link);
-					header("Location: /users/login.php");// Если данные добавились в БД, то перенаправляем на логин
+					header("Location: /modules/users/login.php");// Если данные добавились в БД, то перенаправляем на логин
 				} 
 			// echo $sql;
 			// echo "<h3>Account already exists!</h3>";
@@ -78,10 +78,10 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 			// Если данные добавились в БД, то отправляем письмо подтверждения
 			if($conn->query($sql)) {
 				echo "<h3>Successfully registered.</h3>";
-				$link = "<a href='http://ocean/users/registr.php?u_code=$u_code'>Confirm</a>";
+				$link = "<a href='http://ocean/modules/users/registr.php?u_code=$u_code'>Confirm</a>";
 				mail($_POST['usmail'], 'Registration', $link);
 				$user_id = $conn->insert_id;
-				header("Location: /users/login.php");// Если данные добавились в БД, то перенаправляем на логин
+				header("Location: /modules/users/login.php");// Если данные добавились в БД, то перенаправляем на логин
 			} else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
 			}

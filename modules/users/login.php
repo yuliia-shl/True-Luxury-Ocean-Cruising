@@ -29,7 +29,7 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usmail'] !=""
 			
 		} else { // Если пользователь НЕ верифицирован
 			echo "<script>alert(\"You need verification!\");</script>";
-			header("Location: /users/verification.php");
+			header("Location: /modules/users/verification.php");
 		} 
 	} else	{ // Если пользователь ввел НЕ верно логин или пароль
 		// echo "<h3>Login or password is incorrect.</h3>";
@@ -74,7 +74,7 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usmail'] !=""
                         </div>
                         <div class="col-md-12 mt-3">
                         	Don't have an account?
-							<a href="/users/registr.php" class="no-text-decoration blue-link"><b style="color: #51748b;">CREATE AN ACCOUNT.</b></a>
+							<a href="/modules/users/registr.php" class="no-text-decoration blue-link"><b style="color: #51748b;">CREATE AN ACCOUNT.</b></a>
 						</div>
                     </div>
                 </form>
