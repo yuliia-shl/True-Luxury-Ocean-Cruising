@@ -61,7 +61,7 @@ function generateRandomString($length = 10) {
 ?>
 
 <!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/bg-8.jpg);">
+<section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/bg-9.jpg);">
     <div class="bradcumbContent">
         <h2>MY ACCOUNT</h2>
     </div>
