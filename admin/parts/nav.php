@@ -10,7 +10,7 @@
       </a>
     </li>
   <li class="nav-item <?php if($page == "users"){ echo 'active'; } ?>">
-    <a href="users.php">
+    <a class="nav-link" href="/admin/users.php">
       <i class="now-ui-icons users_single-02"></i>
       <p>Users</p>
     </a>
@@ -22,19 +22,19 @@
       </a>
   </li>
   <li class="nav-item <?php if($page == "destination"){ echo 'active'; } ?>">
-    <a href="/destination.php">
+    <a class="nav-link" href="/admin/destination.php">
       <i class="now-ui-icons location_map-big"></i>
       <p>Destination</p>
     </a>
   </li>
   <li class="nav-item <?php if($page == "categories"){ echo 'active'; } ?>">
-    <a href="/categories.php">
+    <a class="nav-link" href="/admin/categories.php">
       <i class="now-ui-icons design_bullet-list-67"></i>
       <p>Categories</p>
     </a>
   </li>
   <li class="nav-item <?php if($page == "cruises"){ echo 'active'; } ?>">
-    <a href="/cruises.php">
+    <a class="nav-link" href="/admin/cruises.php">
       <i class="now-ui-icons location_world"></i>
       <p>Cruises</p>
     </a>
