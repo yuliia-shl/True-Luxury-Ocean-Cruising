@@ -1,5 +1,10 @@
 <?php 
-$page = "home";
+if(isset($_GET['name_page'])){
+    $page = "contact_us";
+}else{
+    $page = "home";
+}
+
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 ?>
 
@@ -206,14 +211,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
 
 
-    
+ 
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/parts/contact_us.php';

@@ -59,7 +59,7 @@
                                         <a href="/cruises.php">Find a Cruise</a>
                                     </li>
                                     <li <?php if($page == "contact_us"){ echo "class='active'"; }?>>
-                                        <a href="/index.php#contact_us">Contact us</a>
+                                        <a href="/index.php?name_page=contact_us#contact_us">Contact us</a>
                                     </li>
                                     <li <?php if($page == "request_info"){ echo "class='active'"; }?>>
                                         <a href="/request_info.php">Request information</a>
