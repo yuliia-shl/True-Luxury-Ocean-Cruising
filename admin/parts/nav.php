@@ -17,7 +17,7 @@
   </li>
   <li class="nav-item <?php if($page == "request_info"){ echo 'active'; } ?>">
       <a class="nav-link" href="/admin/request_info.php">
-          <i class="now-ui-icons ui-1_bell-53"></i>
+          <i class="now-ui-icons ui-1_email-85"></i>
           <p>Request information</p>
       </a>
   </li>
@@ -29,13 +29,13 @@
   </li>
   <li class="nav-item <?php if($page == "categories"){ echo 'active'; } ?>">
     <a href="/categories.php">
-      <i class="now-ui-icons education_atom"></i>
+      <i class="now-ui-icons design_bullet-list-67"></i>
       <p>Categories</p>
     </a>
   </li>
   <li class="nav-item <?php if($page == "cruises"){ echo 'active'; } ?>">
     <a href="/cruises.php">
-      <i class="now-ui-icons design_bullet-list-67"></i>
+      <i class="now-ui-icons location_world"></i>
       <p>Cruises</p>
     </a>
   </li>
