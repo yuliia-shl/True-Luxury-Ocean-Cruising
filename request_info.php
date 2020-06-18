@@ -107,7 +107,8 @@ if ($result->num_rows > 0) {
     }
   }
   // добовление смс в бд
-  $sql = "INSERT INTO message (`user_id`, `text`) VALUES ('" . $user_id . "', '" . $_POST['message'] . "' ) ";
+  $sql = "INSERT INTO message (`user_id`, `name`, `phone`, `email`, `text`, `time`, `status`) VALUES ('" . $user_id . "', '" . $_POST['name'] . "', '" . $_POST['phone'] . "','" . $_POST['mail'] . "', '" . $_POST['message'] . "', current_timestamp(), 'NEW' ) ";
+  
   if ($conn->query($sql)) {
         echo "msg add";
     } else {

@@ -1,187 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+Include '../configs/db.php';
+$page = "request_info"; 
+include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
+?>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Admin panel</title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
-</head>
 
-<body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <a href="/admin" class="simple-text logo-mini">
-          CLO
-        </a>
-        <a href="/admin" class="simple-text logo-normal">
-          Cruise line Ocean
-        </a>
-      </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Home</p>
-            </a>
-          </li>
-          <li>
-            <a href="./icons.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>Users</p>
-            </a>
-          </li>
-          <li class="active">
-            <a href="option/request_info.php">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Request information</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Destination</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Categories</p>
-            </a>
-          </li>
-          <li>
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Cruises</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel" id="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="#pablo">Home</a>
-          </div>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+<div class="main-panel" id="main-panel">
+  <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+    <div class="container-fluid">       
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/index.php">Home</a></li>
+              <!-- <li class="breadcrumb-item"><a href="/admin/category.php">Category</a></li> -->
+            <li class="breadcrumb-item active">Request information</li>
+          </ol>
       </nav>
-      <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-        <canvas id="bigDashboardChart"></canvas>
-      </div>
-      <div class="content">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title">Shipped Products</h4>
-                <div class="dropdown">
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="lineChartExample"></canvas>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">2018 Sales</h5>
-                <h4 class="card-title">All products</h4>
-                <div class="dropdown">
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">Email Statistics</h5>
-                <h4 class="card-title">24 Hours Performance</h4>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="barChartSimpleGradientsNumbers"></canvas>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class=" container-fluid ">
-          <div class="copyright" id="copyright">
-            &copy; <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="/admin" target="_blank"></a><a href="/admin" target="_blank">Tim № 1/module 3</a>
-          </div>
-        </div>
-      </footer>
+    </div>
+  </nav>
+  <br><br><br><br><br>
+  <!--Table-->
+<div class="card-body table-full-width table-responsive">  
+<table class="table table-striped w-auto">
+  <!--Table head-->
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Time</th>
+      <th>Options</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+    <?php
+    $sql = "SELECT * FROM message";
+    //наш конект выполнит запрос который мы передадим sql
+         $result = $conn->query($sql);
+         while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+  <tr>
+        <td><?php echo $row ['user_id']?></td>
+        <td><?php echo $row ['name']?></td>
+        <td><?php echo $row ['phone']?></td>
+        <td><?php echo $row ['email']?></td>
+        <td><?php echo $row ['text']?></td>
+        <td><?php echo $row ['Time']?></td>
+        <td><div class="btn-group" role="group" aria-label="Basic example"></div>
+            <?php
+              if ($row['options'] == "Need unswer") {
+                ?>
+              <div class="btn btn-danger">Need unswer</div>  
+              <?php
+              } else {
+                ?>
+              <div class="btn btn-success">Already answered</div>  
+              <?php  
+              }
+              ?></td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Basic example"></div>
+            <?php
+              if ($row['Status'] == "NEW") {
+                ?>
+              <div class="btn btn-danger">NEW</div>  
+              <?php
+              } else {
+                ?>
+              <div class="btn btn-success">READY</div>  
+              <?php  
+              }
+              ?>
+          
+        </td>
+  </tr>
+
+  <?php
+    }
+  ?>  
+    
+  </tbody>
+  <!--Table body-->
+
+
+</table>
+</div>
+<!--Table-->
+</div>
+
+
+        <?php 
+         include 'parts/footer.php';
+        ?> 
     </div>
   </div>
   <!--   Core JS Files   -->
