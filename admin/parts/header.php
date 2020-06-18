@@ -21,20 +21,16 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <a href="/admin" class="simple-text logo-mini">
-          CLO
-        </a>
-        <a href="/admin" class="simple-text logo-normal">
-          Cruise line Ocean
-        </a>
-      </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-         <?php
-			include $_SERVER['DOCUMENT_ROOT'].'/admin/parts/nav.php';
-			?>
-      </div>
-    </div>
+<!--
+Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+-->
+<div class="logo">
+  <a href="/admin" class="simple-text logo-mini">CLO</a>
+  <a href="/admin" class="simple-text logo-normal">Cruise line Ocean</a>
+</div>
+<div class="sidebar-wrapper" id="sidebar-wrapper">
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/admin/parts/nav.php';
+?>
+</div>
+  </div>
