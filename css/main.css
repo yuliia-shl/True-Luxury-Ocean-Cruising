@@ -40,3 +40,28 @@
 	background-color: #181818 !important;
     border: 2px solid #cb8670 !important;
 }
+/* Bascket */
+.basket {
+	vertical-align: middle; 
+	text-align: center;
+}
+
+.basket-a {
+	padding: 5px;
+}
+.basket-a img {
+	float: left;
+	padding: 5px;
+}
+
+.basket-span {
+	background: #cb8670;
+    width: 18px;
+    display: block;
+    height: 18px;
+    font-size: 10px;
+    border-radius: 50%;
+    line-height: 2;
+    float: left;
+
+}

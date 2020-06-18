@@ -71,8 +71,19 @@
                                       <?php
                                     }
                                   ?>
+                                    <li  class="basket">
+                                        
+                                            <a class="nav-link basket-a" href="/basket.php">
+                                                <img src="/img/bg-img/cart.svg" width="32" alt="" >
+                                                <span class="basket-span">1</span>
+                                            </a>
+                                        
+                                        
+                                    </li>
+
                                 </ul>
                             </div>
+                            
                             <!-- Nav End -->
                         </div>
                     </nav>

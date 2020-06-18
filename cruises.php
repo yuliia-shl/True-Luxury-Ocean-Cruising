@@ -3,18 +3,17 @@
 include $_SERVER['DOCUMENT_ROOT'] . "/parts/header.php";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 ?>
+<!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises3.jpg);">
+        <div class="bradcumbContent">
+            <h2>All Cruises</h2>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
     
     <section class="rooms-area section-padding-100-0">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-6">
-                    <div class="section-heading text-center">
-                        <div class="line-"></div>
-                        <h2>All Cruises</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
-                    </div>
-                </div>
-            </div>
+           
 
             <div class="row justify-content-center" id="list-cruises">
                 
