@@ -1,7 +1,7 @@
 <?php 
+$page = "login";
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
-
 /*
 + 1. Сделать форму верификации
 + 2. Сделать отправку формы
