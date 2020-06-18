@@ -21,8 +21,8 @@
           <p>Request information</p>
       </a>
   </li>
-  <li class="nav-item <?php if($page == "destination"){ echo 'active'; } ?>">
-    <a class="nav-link" href="/admin/destination.php">
+  <li class="nav-item <?php if($page == "destinations"){ echo 'active'; } ?>">
+    <a class="nav-link" href="/admin/destinations.php">
       <i class="now-ui-icons location_map-big"></i>
       <p>Destination</p>
     </a>

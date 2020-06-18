@@ -16,6 +16,7 @@
   <link href="/admin/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/admin/assets/demo/demo.css" rel="stylesheet" />
+  <link href="/admin/assets/css/main.css" rel="stylesheet" />
 </head>
 
 <body class="">
