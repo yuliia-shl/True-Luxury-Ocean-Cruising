@@ -16,8 +16,8 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
       </nav>
     </div>
   </nav>
-  <br><br><br><br><br>
-  <!--Table-->
+<br><br><br><br><br>
+<!--Table-->
 <div class="card-body table-full-width table-responsive">  
 <table class="table table-striped w-auto">
   <!--Table head-->
