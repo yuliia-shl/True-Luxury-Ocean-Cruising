@@ -17,7 +17,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
     <div class="container">
        
         <!-- Display all selected cruises -->         
-        <div class="row" id="products">
+        <div class="row" id="cruises">
             <!-- Таблица выбранных товаров -->  
             <table class="table table-dark">
               <thead>
@@ -66,12 +66,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
                               <td><?php echo $cruis['days']; ?></td>
                               <td>
                                 <input type="text" name="ticket" size="4" 
-                                        onchange="changeCountAndCosts(this.value, <?php echo $cruis['price']; ?>,
+                                        onchange="changeCountTicketsAndCosts(this.value, <?php echo $cruis['price']; ?>,
                                             <?php echo $cruis['id']; ?>)" 
                                         value="<?php echo $basket['basket'][$i]['ticket']; ?>">
                               </td>
                               <td><?php echo $cruis['price']; ?></td>
-                              <td id="costs-<?php echo $cruis['id']; ?>"><?php echo $cruis['price'] * $basket['basket'][$i]['ticket']; ?></td>
+                              <td id="cost-<?php echo $cruis['id']; ?>"><?php echo $cruis['price'] * $basket['basket'][$i]['ticket']; ?></td>
                               <td><button onclick="deleteCruisBasket(this, <?php echo $cruis['id']; ?>)" class="btn btn-danger">Delete</button></td>
                             </tr>
 

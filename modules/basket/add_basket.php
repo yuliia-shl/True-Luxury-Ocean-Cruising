@@ -30,7 +30,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		for ($i=0; $i < count($basket["basket"]); $i++) { 
 			// Если круиз в корзине уже существует
 			if($basket["basket"][$i]["cruis_id"] == $cruis['id']){
-				$basket["basket"][$i]["count"]++;
+				$basket["basket"][$i]["ticket"]++;
 				// Меняем флаг, что такой круиз уже существует
 				$issetCruis = 1;
 			}

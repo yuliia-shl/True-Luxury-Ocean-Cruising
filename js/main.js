@@ -49,7 +49,7 @@ function addToBasket(btn) {
 	// Преобразовывает JSON формат в js обект
 	var response = JSON.parse(ajax.response);
 
-	// Меняем значение в блоке basket-span, прописываем количество выбраных товаров
+	// Меняем значение в блоке basket-span, прописываем количество выбраных круизов
 	var btnGoBasket = document.querySelector("#basket-span");
 		btnGoBasket.innerText = response.count;
 }
@@ -65,9 +65,39 @@ function deleteCruisBasket(obj, id) {
 		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		ajax.send("id=" + id);
 
-		alert("Продукт удален");
+		alert("Круиз удален");
 
 		// удаляем выбранный объект/круиз
 		obj.parentNode.parentNode.remove();
+
+}
+
+/*======================
+Изменение количества билетов и общей стоимости
+======================*/
+function changeCountTicketsAndCosts(count, price, id){
+
+	//создаем объект. Мы его будем передавать в аякс запросе
+	let cruisInfo = new Object();
+		cruisInfo = {  // объект
+				    	id: id, // id круиза берем из аргумента id
+						count_tickets: + count, // количество билетов берем из аргумента count
+						price: price // цену берем из аргумента price
+					};
+
+	// преобразовуем объект в JSON	
+	var jsonDataCruis = JSON.stringify(cruisInfo);
+
+	var ajax = new XMLHttpRequest();
+		ajax.open("POST", siteURL + "/modules/basket/change.php", false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send("data_cruis=" + jsonDataCruis);
+
+	// Преобразовывает JSON формат в js обект
+	var response = JSON.parse(ajax.response);
+	
+	// Делаем перезагрузку блока с ценой
+	var changeCosts = document.querySelector("#cost-" + id);
+		changeCosts.innerText = response.cost;
 
 }
