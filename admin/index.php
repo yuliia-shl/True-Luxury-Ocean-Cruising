@@ -107,6 +107,6 @@
   </div> <!-- content -->
 
 <?php 
-		include $_SERVER['DOCUMENT_ROOT']. '/parts/footer.php';
+include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/footer.php';
 ?> 
 
