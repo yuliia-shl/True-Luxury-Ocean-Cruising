@@ -4,7 +4,6 @@ $page = "request_info";
 include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 ?>
 
-
 <div class="main-panel" id="main-panel">
   <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
     <div class="container-fluid">       
@@ -49,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
       <td><?php echo $row ['name']?></td>
       <td><?php echo $row ['phone']?></td>
       <td><?php echo $row ['email']?></td>
-      <td><?php echo $row ['text']?></td>
+      <td><textarea><?php echo $row ['text']?></textarea></td>
       <td><?php echo $row ['Time']?></td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic example">
