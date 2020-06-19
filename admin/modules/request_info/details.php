@@ -1,10 +1,13 @@
+<!-- ===================================
+Файл для вывода подробной инфо о письмах
+=====================================-->
 <?php
+//название раздела
+$page = "request_info"; 
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
-// $page = "request_info"; 
 include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
-?>
 
-<?php
+// Если пришел get запрос
 if (isset($_GET['id'])) {
 	$sql_sms = "SELECT * FROM message WHERE id =" . $_GET['id'];
 	$result_sms = $conn->query($sql_sms);
@@ -16,84 +19,84 @@ if (isset($_GET['id'])) {
 	$users = mysqli_fetch_assoc($result);
 }
 ?>
-<div class="main-panel" id="main-panel">
-  <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-    <div class="container-fluid">       
-      <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/admin/request_info.php">Request information</a></li>
-              <!-- <li class="breadcrumb-item"><a href="/admin/category.php">Category</a></li> -->
-            <li class="breadcrumb-item active">Deteils</li>
-          </ol>
-      </nav>
-    </div>
-  </nav>
-<br><br><br><br><br>
-<!--Table-->
 
-<!-- ==================
-Блок с формой для просмотра с иформацией
-=====================-->
 <div class="main-panel" id="main-panel">
-	<div class="container-fluid">
+	<!-- breadcrumb block-->   
+	<nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
+	    <div class="container-fluid">
+	      <nav aria-label="breadcrumb">
+	          <ol class="breadcrumb">
+	          	<li class="breadcrumb-item"><a href="/admin/index.php">Home</a></li>
+	            <li class="breadcrumb-item"><a href="/admin/request_info.php">Request information</a></li>
+	            <li class="breadcrumb-item active">INFO</li>
+	          </ol>
+	      </nav>
+	    </div>
+	</nav>
+	  <!--End breadcrumb block-->
+	<br><br><br><br><br>
+	<!--Table-->
+
+	<!-- ===================================
+	Блок с формой для просмотра с иформации
+	=====================================-->
+	<div class="content">
 	    <div class="row">
-	        <div class="col-md-9">
+	        <div class="col-md-8">
 	            <div class="card">
-	            	 <div class="card-header">
-	                    <h4 class="card-title">Deteils</h4>
+	            	<div class="card-header">
+	                    <h4 class="card-title">Details</h4>
 	                </div>
+
 	                <div class="card-body">
+	                    <form method="GET" active="" id="form-edit-products" enctype="multipart/form-data">
+		                    <div class="form-group">
+		                        <label for="form_name">Name</label>
+		                        <input type="text" name="name" class="form-control" id="form_name" value="<?= $row_sms['name'] ?>">
+		                    </div>
+		                    <div class="form-group">
+		                        <label for="form_phone">Phone</label>
+		                        <input type="text" name="phone" class="form-control" id="form_phone" value="<?= $row_sms['phone'] ?>">
+		                    </div>		
+		                    <div class="form-group">
+		                        <label for="form_email">Email</label>
+		                        <input type="text" name="mail" class="form-control" id="form_email" value="<?= $row_sms['email'] ?>">
+		                    </div>
+		                    <div class="form-group">
+		                        <label for="form-data">Time</label>
+		                        <input type="text" name="time" class="form-control" id="form-data" value="<?= $row_sms['Time'] ?>">
+		                    </div> 
+		                    <div class="form-group">
+		                        <label for="form_message">Message</label>
+		                        <textarea type="text" name="massage" class="form-control" id="massage" value="<?= $row_sms['text'] ?>">"<?= $row_sms['text'] ?>"</textarea>
+		                    </div>
+							<div class="container">
+							  <div class="row">
+								<div class="col-lg-8 col-lg-offset-2">
+								 <?php
+						            if ($row_sms['Status'] == "NEW") {
+						              ?>
+						                <a href="/admin/modules/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" type="button" class="btn btn-danger">PRESS TO ANSWER!</a>
+						              <?php
+						            } else {
+						            	echo "<div class=\"btn btn-success\">ALREDY ANSWERED</div>";
+						            }
+						         ?>
+						         	<a href="/admin/request_info.php" type="button" class="btn btn-primary mb-2">Back</a>             
+						        </div>
+							  </div>
+							</div> 
+						</form>
+					</div><!-- ./card-body -->
+				</div> <!-- /.card -->
+			</div> <!-- ./col-md-8 -->
+		</div><!-- ./row -->
+	</div>
+	<!-- =======================================
+	END блока с формой для просмотра с иформации
+	=========================================-->
+</div> <!-- ./main-panel -->
 
-	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
-	                      
-	                      <div class="form-group">
-	                        <label for="form_name">Name</label>
-	                        <input type="text" name="name" class="form-control" id="form_name" value="<?= $row_sms['name'] ?>">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="form_phone">Phone</label>
-	                        <input type="text" name="phone" class="form-control" id="form_phone" value="<?= $row_sms['phone'] ?>">
-	                      </div>		
-	                      <div class="form-group">
-	                        <label for="form_email">Email</label>
-	                        <input type="text" name="mail" class="form-control" id="form_email" value="<?= $row_sms['email'] ?>">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="form-data">Time</label>
-	                        <input type="text" name="time" class="form-control" id="form-data" value="<?= $row_sms['Time'] ?>">
-	                      </div> 
-	                      <div class="form-group">
-	                        <label for="form_message">Message</label>
-	                        <textarea type="text" name="massage" class="form-control" id="massage" value="<?= $row_sms['text'] ?>">"<?= $row_sms['text'] ?>"</textarea>
-	                      </div>
-	                  </div>
-
- <div class="container">
-	 <div class="row">
-		 <div class="col-lg-8 col-lg-offset-2">
-		 	<?php
-            if ($row_sms['Status'] == "NEW") {
-              ?>
-            <a href="/admin/option/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" 
-               type="button" class="btn btn-danger">Need to be answered</a>  
-            <?php
-            } else {
-              ?>
-            <div class="btn btn-success">ALREDY ANSWERED</div>  
-            <?php  
-            }
-            ?>              
-        </div>
-    </div>
-</div> 
-
-</form>
-</div><!-- /.col-lg-8 col-lg-offset-2 -->
-</div> <!-- /.row-->
-</div> <!-- /.container-->
-</div>
-   	 </div>
-          </div>
 <?php 
  include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/footer.php';
 ?> 
