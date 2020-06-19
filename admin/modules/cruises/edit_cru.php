@@ -10,14 +10,14 @@
 // Если пришел get запрос, после нажатия на кнопку edit
 if(isset($_GET['id'])){
 
-	// Берем все данные из таблици destinations где id=$_GET["id"]
-    $sql = "SELECT * FROM destinations WHERE id=" . $_GET["id"];
-    $categories = $conn->query($sql); // Выполняем запрос
-    
-    // Если строки с sql апроса были найдены
-    if ($categories->num_rows > 0) {  
-    	// присваиваем переменной des_info полученный массив 
-        $des_info = mysqli_fetch_assoc($categories);
+	// Берем все данные из таблици cruises где id=$_GET["id"]
+    $sql = "SELECT * FROM cruises WHERE id=" . $_GET["id"];
+    $cruises = $conn->query($sql); // Выполняем запрос
+
+    // Если строки с sql запроса были найдены
+    if ($cruises->num_rows > 0) {  
+    	// присваиваем переменной cru_info полученный массив 
+        $cru_info = mysqli_fetch_assoc($cruises);
     }
 }
 
@@ -30,16 +30,17 @@ if(isset($_POST['back'])) {
 // Если была нажата кнопка редактировать
 if(isset($_POST['submit'])){
     // Пишем запрос на обновление данных в БД в направлениях
-  	$sql = "UPDATE destinations 
-            SET arrival='". $_POST['arrival'] ."',
-                departure='". $_POST['departure'] ."',
-                categori_id='". $_POST['categori_id'] ."'              
+  	$sql = "UPDATE cruises 
+            SET title='". $_POST['title'] ."',
+                days='". $_POST['days'] ."',
+                price='". $_POST['price'] ."',
+                destinations_id='" . $_POST["destinations_id"] . "'              
             WHERE id =" . $_GET['id'];
 
     // Выполняем запрос
   	$result = $conn->query($sql);
   	// Перезагружаем эту же страничку
-  	header("Location: /admin/modules/destinations/edit.php?id=" . $_GET['id']);
+  	header("Location: /admin/modules/cruises/edit_cru.php?id=" . $_GET['id']);
 }
 
 ?>
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])){
 			<nav aria-label="breadcrumb">
 	          	<ol class="breadcrumb">
 	            	<li class="breadcrumb-item"><a href="/admin/index.php">Home</a></li>
-	            	<li class="breadcrumb-item"><a href="/admin/destinations.php">Cruises</a></li>
+	            	<li class="breadcrumb-item"><a href="/admin/cruises.php">Cruises</a></li>
 	            	<li class="breadcrumb-item active">EDIT</li>
 	          	</ol>
 		    </nav>
@@ -60,9 +61,9 @@ if(isset($_POST['submit'])){
 	<!--End breadcrumb block-->
 	<br><br><br><br><br>
 
-	<!-- ===============================
-	Блок с формой для внесения изменений
-	=================================-->
+	<!-- =======================
+	Блок с формой для добавления
+	=========================-->
 	<div class="content">
 	    <div class="row">
 	        <div class="col-md-8">
@@ -71,46 +72,49 @@ if(isset($_POST['submit'])){
 	                    <h4 class="card-title">Edit Cruise</h4>
 	                </div>
 	                <div class="card-body">
+
 	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
-		                    <div class="form-group">
-		                      <label for="arrival">Arrival</label>
-		                      <input type="text" name="arrival" class="form-control" id="arrival" value="<?php echo $des_info['arrival']; ?>">
-		                    </div>
-		                    <div class="form-group">
-		                      <label for="departure">Departure</label>
-		                      <input type="text" name="departure" class="form-control" id="departure" value="<?php echo $des_info['departure']; ?>">
-		                    </div>
-	                      	<div class="form-group">
-		                        <label for="categori_id">Сategory</label>
-		                        <select name="categori_id" class="form-control" >  
 
-		                          <?php
-		                            $categories = "SELECT * FROM `categories`";
-		                            $result_categories = $conn->query($categories);
-		                            while ($categorie = mysqli_fetch_assoc($result_categories)){
+	                      <div class="form-group">
+	                        <label for="title">Title</label>
+	                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control">
+	                      </div>
+	                      <div class="form-group">
+	                        <label for="days">Days</label>
+	                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
+	                      </div>
+	                      <div class="form-group">
+	                        <label for="price">Price</label>
+	                        <input type="text" value="<?php echo $cru_info['price']; ?>" name="price" class="form-control">
+	                      </div>
 
-		                                echo "<option value='". $categorie['id']."'";
-		                                if ($des_info['categori_id'] == $categorie['id']){
-		                                    echo "selected";
-		                                }
-		                                echo ">". $categorie['title'] ."</option>";
+                	      <div class="form-group">
+	                        <label for="destinations">Destinations</label>
+	                        <select name="destinations_id" class="form-control">
+	                        	<?php
+		                            $sql = "SELECT * FROM `destinations`";
+		                            $result = $conn->query($sql);
+
+		                            while ($destinations = mysqli_fetch_assoc($result)){
+		                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
 		                            }
-		                          ?>
-
-		                        </select>
-	                        </div>
-		                    <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
-		                    <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
+		                        ?>
+	                        </select>
+	                      </div>
+	                     
+	                      <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
+		                  <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
 	                    </form>
 	                </div>
 	            </div>     
-	      </div>
-	    </div>    
-	</div>
-</div>
-<!-- ====================================
-end Блок с формой для внесения изменений 
-=======================================-->
+	      	</div> <!-- col-md-8 --> 
+	    </div> <!-- End row --> 
+	</div> <!-- End content --> 
+	<!-- ===========================
+	end Блок с формой для редактирования 
+	==============================-->
+</div><!-- End main-panel --> 
+
 
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . '/admin/parts/footer.php';

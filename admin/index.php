@@ -62,7 +62,7 @@
       <div class="col-lg-4 col-md-6">
         <div class="card card-chart">
           <div class="card-header">
-            <h5 class="card-category">2018 Sales</h5>
+            <h5 class="card-category">2020 Sales</h5>
             <h4 class="card-title">All products</h4>
             <div class="dropdown">
               <div class="dropdown-menu dropdown-menu-right">
