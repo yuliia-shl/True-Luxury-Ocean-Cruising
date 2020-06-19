@@ -5,7 +5,7 @@
 ?>
 
 <div class="main-panel" id="main-panel">
-<!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
     <div class="container-fluid">
       <div class="navbar-wrapper">
@@ -107,6 +107,6 @@
   </div> <!-- content -->
 
 <?php 
-		include 'parts/footer.php';
+		include $_SERVER['DOCUMENT_ROOT']. '/parts/footer.php';
 ?> 
 
