@@ -1,11 +1,16 @@
+<!-- ============================
+Файл для вывода Категорий из БД
+==============================-->
 <?php
-$page = "categories";
-include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
-include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
-
+	//название раздела
+	$page = "categories";
+	include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
+	include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 ?>
+
 <div class="main-panel" id="main-panel">
-	 <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+	<!-- breadcrumb block-->
+	<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
 	    <div class="container-fluid">       
 	      	<nav aria-label="breadcrumb">
 	          	<ol class="breadcrumb">
@@ -15,6 +20,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 	      	</nav>
 	    </div>
 	</nav>
+	<!--End breadcrumb block-->
 	<br><br><br><br><br>
 
 	<!--Table-->
@@ -24,15 +30,15 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
             <div class="card">
 				<div class="card-body">
 	                <div class="table-responsive">
-						<div class="btn btn-success mb-2">
-							<a href="/admin/modules/categories/add.php">ADD</a>
+	                	<div class="card-header ">
+							<h5 class="card-title">Categories 
+								<a class="btn btn-info" href="/admin/modules/categories/add.php">ADD NEW</a>
+							</h5>
 						</div> 
-
 		                <table class="table">
 		                    <thead class=" text-primary">
 		                      <th>id</th>
 		                      <th>Title</th>
-		                      <!-- <th>Options</th> -->
 		                    </thead>
 		                    <tbody>
 		                    	<?php
@@ -46,10 +52,10 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 					                        <td><?php echo $row ['id'] ?></td>
 					                        <td><?php echo $row ['title'] ?></td>
 					                        <td class="text-right">
-					                        	<div class="btn btn-danger mb-2">
+					                        	<div class="btn btn-danger">
 					                        		<a href="/admin/modules/categories/delete.php?id=<?php echo $row ['id']; ?>">DELETE</a>
 					                        	</div>
-					                        	<div class="btn btn-success mb-2">
+					                        	<div class="btn btn-success">
 					                        		<a href="/admin/modules/categories/edit.php?id=<?php echo $row ['id']; ?>">EDIT</a>
 					                        	</div> 
 					                        </td>
@@ -59,7 +65,6 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		                    	?>
 		                    </tbody>
 		                </table>
-
 	                </div>
 	              </div>
               </div>

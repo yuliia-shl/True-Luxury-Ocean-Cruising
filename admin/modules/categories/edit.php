@@ -1,9 +1,11 @@
-
+<!-- ============================
+Файл для редактирования Категорий
+==============================-->
 <?php
+//название раздела
 $page = "categories";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
-
 
 // Если пришел get запрос, после нажатия на кнопку edit
 if(isset($_GET['id'])){
@@ -18,7 +20,7 @@ if(isset($_GET['id'])){
     }
 }
 
-// // Если была нажата кнопка Изменить и поле Название не пустое
+// Если была нажата кнопка Изменить и поле Название не пустое
 if ( isset($_POST["edit"]) && $_POST["title"] != ""  ) {
 	// Формируем запрос на добавление в БД
 	$sql = "UPDATE categories SET title = '" . $_POST["title"] . "' WHERE id= '" . $_GET["id"] . "'";;
@@ -32,8 +34,8 @@ if ( isset($_POST["edit"]) && $_POST["title"] != ""  ) {
 }
 ?>
 
-
 <div class="main-panel" id="main-panel">
+	<!-- breadcrumb block-->
 	<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
 	    <div class="container-fluid">   
 			<nav aria-label="breadcrumb">
@@ -45,8 +47,8 @@ if ( isset($_POST["edit"]) && $_POST["title"] != ""  ) {
 		    </nav>
 		</div>
 	</nav>
+	<!-- End breadcrumb block-->
 	<br><br><br><br><br>
-
 	<!-- =======================
 	Блок с формой для редактирования
 	=========================-->

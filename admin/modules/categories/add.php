@@ -1,25 +1,27 @@
-
+<!-- ==========================
+Файл для добавления Категории
+============================-->
 <?php
+//название раздела
 $page = "categories";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 
 // // Если была нажата кнопка Добавить и поле Название не пустое
 if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
-		// Формируем запрос на добавление в БД
-		$sql = "INSERT INTO categories (title) VALUES ('" . $_POST["title"] . "')";
-		if ( $conn->query($sql) ) { // Если запрос выполнился успешно 
-			echo "<h3>successfully added!</h3>";
-			header('Location: /admin/categories.php');
-		} else {
-	        echo "<h2>Error!</h2>";
-	    }
+	// Формируем запрос на добавление в БД
+	$sql = "INSERT INTO categories (title) VALUES ('" . $_POST["title"] . "')";
+	if ( $conn->query($sql) ) { // Если запрос выполнился успешно 
+		echo "<h3>successfully added!</h3>";
+		header('Location: /admin/categories.php');
+	} else {
+        echo "<h2>Error!</h2>";
+    }
 }
-
 ?>
 
-
 <div class="main-panel" id="main-panel">
+	<!-- breadcrumb block-->
 	<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
 	    <div class="container-fluid">   
 			<nav aria-label="breadcrumb">
@@ -31,8 +33,8 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 		    </nav>
 		</div>
 	</nav>
+	<!-- End breadcrumb block-->
 	<br><br><br><br><br>
-	
 	<!-- =======================
 	Блок с формой для добавления
 	=========================-->
