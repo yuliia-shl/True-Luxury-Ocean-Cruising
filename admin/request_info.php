@@ -10,7 +10,6 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
       <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/admin/index.php">Home</a></li>
-              <!-- <li class="breadcrumb-item"><a href="/admin/category.php">Category</a></li> -->
             <li class="breadcrumb-item active">Request information</li>
           </ol>
       </nav>
@@ -18,23 +17,23 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
   </nav>
   <br><br><br><br><br>
   <!--Table-->
-<div class="card-body table-full-width table-responsive">  
-<table class="table table-striped w-auto">
-  <!--Table head-->
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Message</th>
-      <th>Time</th>
-      <th>Options</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <!--Table head-->
-
+  <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+           
+                      <table class="table">
+                        <thead class=" text-primary">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Time</th>
+                            <th>Options</th>
+                            <th>Status</th>
+                        </thead>
   <!--Table body-->
   <tbody>
     <?php
@@ -48,7 +47,6 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
       <td><?php echo $row ['name']?></td>
       <td><?php echo $row ['phone']?></td>
       <td><?php echo $row ['email']?></td>
-      <td><textarea><?php echo $row ['text']?></textarea></td>
       <td><?php echo $row ['Time']?></td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic example">
@@ -76,16 +74,16 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
   ?>      
 </tbody>
   <!--Table body-->
-</table>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
-<!--Table-->
 </div>
+<!--End Table-->
 <!--Footer-->
 <?php 
 include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/footer.php';
 ?> 
-    </div>
-  </div>
-</body>
-
-</html>

@@ -31,6 +31,43 @@ if (isset($_GET['id'])) {
 <br><br><br><br><br>
 <!--Table-->
 
+<!-- ==================
+Блок с формой для просмотра с иформацией
+=====================-->
+<div class="main-panel" id="main-panel">
+	<div class="container-fluid">
+	    <div class="row">
+	        <div class="col-md-9">
+	            <div class="card">
+	            	 <div class="card-header">
+	                    <h4 class="card-title">Deteils</h4>
+	                </div>
+	                <div class="card-body">
+
+	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
+	                      
+	                      <div class="form-group">
+	                        <label for="form_name">Name</label>
+	                        <input type="text" name="name" class="form-control" id="form_name" value="<?= $row_sms['name'] ?>">
+	                      </div>
+	                      <div class="form-group">
+	                        <label for="form_phone">Phone</label>
+	                        <input type="text" name="phone" class="form-control" id="form_phone" value="<?= $row_sms['phone'] ?>">
+	                      </div>		
+	                      <div class="form-group">
+	                        <label for="form_email">Email</label>
+	                        <input type="text" name="mail" class="form-control" id="form_email" value="<?= $row_sms['email'] ?>">
+	                      </div>
+	                      <div class="form-group">
+	                        <label for="form-data">Time</label>
+	                        <input type="text" name="time" class="form-control" id="form-data" value="<?= $row_sms['Time'] ?>">
+	                      </div> 
+	                      <div class="form-group">
+	                        <label for="form_message">Message</label>
+	                        <textarea type="text" name="massage" class="form-control" id="massage" value="<?= $row_sms['text'] ?>">"<?= $row_sms['text'] ?>"</textarea>
+	                      </div>
+	                  </div>
+
  <div class="container">
 	 <div class="row">
 		 <div class="col-lg-8 col-lg-offset-2">
@@ -45,62 +82,18 @@ if (isset($_GET['id'])) {
             <div class="btn btn-success">ALREDY ANSWERED</div>  
             <?php  
             }
-            ?>     
-		 
-<div class="controls">
-<div class="row">
- 	<div class="col-md-6">
-		 <div class="form-group">
-		 	<label for="form_name">Name</label>
-				 <input id="form_name" type="text" value="<?= $row_sms['name'] ?>" name="name" class="form-control" required="required" data-error="Firstname is required.">
-		 			<div class="help-block with-errors"></div>
-		 		</div>
-		 	</div>
-		 <div class="col-md-6">
-	 <div class="form-group">
- <label for="form_lastname">Phone</label>
-<input id="form_lastname" type="text" value="<?= $row_sms['phone'] ?>" name="surname" class="form-control" required="required" data-error="Lastname is required.">
-<div class="help-block with-errors"></div>
-	</div>
- </div>
-</div>
+            ?>              
+        </div>
+    </div>
+</div> 
 
-<div class="row">
-
- <div class="col-md-6">
-	 <div class="form-group">
-		 <label for="form_email">Email</label>
-		 	<input id="form_email" type="email" value="<?= $row_sms['email'] ?>" name="email" class="form-control" required="required" data-error="Valid email is required.">
-	 <div class="help-block with-errors"></div>
- </div>
-</div>
-
-<div class="col-md-6">
- 	<div class="form-group">
-		 <label for="form_phone">Time</label>
-		 	<input id="form_phone" value="<?= $row_sms['Time'] ?>" type="tel" name="phone" class="form-control">
-		 <div class="help-block with-errors"></div>
-	 </div>
- </div>
-</div>
-
-<div class="row">
- 	<div class="col-md-12">
-		 <div class="form-group">
-			 <label for="form_message">Message</label>
-		 <textarea id="form_message" value="<?= $row_sms['text'] ?>"  name="message" class="form-control" rows="4" required="required"><?= $row_sms['text'] ?></textarea>
-	 <div class="help-block with-errors"></div>
- </div>
- </div>
-</div>
-</div>
 </form>
 </div><!-- /.col-lg-8 col-lg-offset-2 -->
 </div> <!-- /.row-->
 </div> <!-- /.container-->
-<!--Table-->
 </div>
-
+   	 </div>
+          </div>
 <?php 
  include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/footer.php';
 ?> 
