@@ -33,7 +33,7 @@
 	                	<div class="card-header ">
 						<!-- <div class="btn btn-success"> -->
 							<h5 class="card-title">Destinations 
-								<a class="btn btn-outline-info" href="/admin/modules/destinations/add.php">ADD NEW</a>
+								<a class="btn btn-info" href="/admin/modules/destinations/add.php">ADD NEW</a>
 							</h5>
 						</div>
 
