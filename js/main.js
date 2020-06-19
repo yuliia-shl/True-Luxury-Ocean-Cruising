@@ -74,6 +74,9 @@ function deleteCruisBasket(obj, id) {
 
 		// удаляем выбранный объект/круиз
 		obj.parentNode.parentNode.remove();
+		/*var cruises = document.querySelector("#cruises");
+		cruises.innerText = response;*/
+
 
 }
 

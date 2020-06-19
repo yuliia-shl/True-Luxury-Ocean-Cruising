@@ -66,7 +66,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
                             $cruis = mysqli_fetch_assoc($result);
                             ?>
                             <tr>
-                              <th scope="row"><?php echo $i + 1; ?></th>
+                              <th scope="row"><?php echo $i + 1 ; ?></th>
                               <td><?php echo $cruis['title']; ?></td>
                               <td><?php echo $cruis['title_cat']; ?></td>
                               <td><?php echo $cruis['arrival']; ?> -- TO -- <?php echo $cruis['departure']; ?></td>
