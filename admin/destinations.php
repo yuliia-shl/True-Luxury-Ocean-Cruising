@@ -1,8 +1,11 @@
+<!-- ============================
+Файл для вывода Направлений из БД
+==============================-->
 <?php
-$page = "destinations";
-
-include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
-include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
+	//название раздела
+	$page = "destinations";
+	include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
+	include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 ?>
 
 <div class="main-panel" id="main-panel">
@@ -27,16 +30,19 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
             <div class="card">
 				<div class="card-body">
 	                <div class="table-responsive">
-						<div class="btn btn-success">
-							<a href="/admin/modules/destinations/add.php">ADD</a>
+	                	<div class="card-header ">
+						<!-- <div class="btn btn-success"> -->
+							<h5 class="card-title">Destinations 
+								<a class="btn btn-outline-info" href="/admin/modules/destinations/add.php">ADD NEW</a>
+							</h5>
 						</div>
 
 		                <table class="table">
 		                    <thead class=" text-primary">
 		                      <th>id</th>
-		                      <th>arrival</th>
-		                      <th>departure</th>
-		                      <th>categori</th>
+		                      <th>Arrival</th>
+		                      <th>Departure</th>
+		                      <th>Category</th>
 		                      <th></th>
 		                    </thead>
 		                    <tbody>
