@@ -1,10 +1,13 @@
 var siteURL = "http://ocean";
 
+/*======================
+Функция для пагинации
+======================*/
 function goToPage(elem) {
 
 	var link = elem.dataset.link;
 
-	// Выполняем аякс запрос, выводим товары по выбранной ссылке
+	// Выполняем аякс запрос, выводим круизы по выбранной ссылке
 	var ajax = new XMLHttpRequest();
 	ajax.open("GET", siteURL + link, false);
 	ajax.send();
@@ -30,4 +33,28 @@ function goToPage(elem) {
 		
 	}
 
+}
+
+/*======================
+Функция добавления выбранного круиза в корзину
+======================*/
+function addToBasket(btn) {
+	//alert(btn.dataset.id);
+	/*
+	1. 
+	2. Получить данные об успешном добавлении в корзину
+	3. Обновить информацию в корзине
+	*/
+	// Делаем аякс запрос на добавление в корзину
+	var ajax = new XMLHttpRequest();
+		ajax.open("POST", siteURL + "/modules/basket/add_basket.php", false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send("id=" + btn.dataset.id);
+
+	// Преобразовывает JSON формат в js обект
+	var response = JSON.parse(ajax.response);
+
+	// Меняем значение в блоке go-basket, прописываем количество выбраных товаров
+	var btnGoBasket = document.querySelector("#basket-span");
+		btnGoBasket.innerText = response.count;
 }
