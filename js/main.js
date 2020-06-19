@@ -39,12 +39,7 @@ function goToPage(elem) {
 Функция добавления выбранного круиза в корзину
 ======================*/
 function addToBasket(btn) {
-	//alert(btn.dataset.id);
-	/*
-	1. 
-	2. Получить данные об успешном добавлении в корзину
-	3. Обновить информацию в корзине
-	*/
+
 	// Делаем аякс запрос на добавление в корзину
 	var ajax = new XMLHttpRequest();
 		ajax.open("POST", siteURL + "/modules/basket/add_basket.php", false);
@@ -54,7 +49,7 @@ function addToBasket(btn) {
 	// Преобразовывает JSON формат в js обект
 	var response = JSON.parse(ajax.response);
 
-	// Меняем значение в блоке go-basket, прописываем количество выбраных товаров
+	// Меняем значение в блоке basket-span, прописываем количество выбраных товаров
 	var btnGoBasket = document.querySelector("#basket-span");
 		btnGoBasket.innerText = response.count;
 }
