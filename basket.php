@@ -4,17 +4,26 @@ $page = "basket";
 include $_SERVER['DOCUMENT_ROOT'] . "/parts/header.php";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 ?>
-<!-- ##### Breadcumb Area Start ##### -->
+<!-- ##### Header ##### -->
 <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises3.jpg);">
     <div class="bradcumbContent">
-        <h2>Your Basket</h2>
+        <h2>YOUR BASKET</h2>
     </div>
 </section>
-<!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Header End ##### -->
 
 <!-- ##### Container with Table Basket ##### -->
-<section class="rooms-area section-padding-100-0">
+<section class="contact-form-area mb-100">
     <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <div class="line-"></div>
+                    <h2>Request</h2>
+                </div>
+            </div>
+        </div>
        
         <!-- Display all selected cruises -->         
         <div class="row" id="cruises">
@@ -61,7 +70,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
                               <th scope="row"><?php echo $i + 1; ?></th>
                               <td><?php echo $cruis['title']; ?></td>
                               <td><?php echo $cruis['title_cat']; ?></td>
-                              <td><?php echo $cruis['arrival']; ?> TO <?php echo $cruis['departure']; ?></td>
+                              <td><?php echo $cruis['arrival']; ?> -- TO -- <?php echo $cruis['departure']; ?></td>
                               <td><?php echo $cruis['data']; ?></td>
                               <td><?php echo $cruis['days']; ?></td>
                               <td>
@@ -85,14 +94,19 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
             </table>
         </div>
     </div>
+
+    <!-- ##### Form Basket ##### -->
+    <?php
+    include $_SERVER['DOCUMENT_ROOT'] . "/parts/form_basket.php";
+    ?>
+    <!-- ##### Form Basket  End ##### -->
+
 </section>
 <!-- ##### Container with Table Basket  End ##### -->
 
 
-
 <!-- ##### Footer Area Start ##### -->
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'] . "/parts/footer.php";
-
 ?>
+<!-- ##### Footer Area Start   End##### -->
