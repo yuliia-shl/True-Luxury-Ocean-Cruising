@@ -48,10 +48,15 @@ function addToBasket(btn) {
 
 	// Преобразовывает JSON формат в js обект
 	var response = JSON.parse(ajax.response);
+	
+	// Если такой круиз уже был, то выводим алерт
+	if(response.info.echo_info != "") {
+		alert(response.info.echo_info );
+	}
 
 	// Меняем значение в блоке basket-span, прописываем количество выбраных круизов
 	var btnGoBasket = document.querySelector("#basket-span");
-		btnGoBasket.innerText = response.count;
+		btnGoBasket.innerText = response.info.count;
 }
 
 /*======================
@@ -75,13 +80,13 @@ function deleteCruisBasket(obj, id) {
 /*======================
 Изменение количества билетов и общей стоимости
 ======================*/
-function changeCountTicketsAndCosts(count, price, id){
+function changeCountTicketsAndCosts(days, price, id){
 
 	//создаем объект. Мы его будем передавать в аякс запросе
 	let cruisInfo = new Object();
 		cruisInfo = {  // объект
 				    	id: id, // id круиза берем из аргумента id
-						count_tickets: + count, // количество билетов берем из аргумента count
+						days: + days, // количество билетов берем из аргумента count
 						price: price // цену берем из аргумента price
 					};
 

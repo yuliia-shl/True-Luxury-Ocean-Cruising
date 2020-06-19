@@ -20,9 +20,9 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 			// Если id выбранного круиза совпадает с id круиза в корзине
 			if($basket['basket'][$i]['cruis_id'] == $cruis['id']){
 				// меняем количество и общую стоимость товара в корзине
-				$basket['basket'][$i]['ticket'] = $cruis['count_tickets'];
+				$basket['basket'][$i]['days'] = $cruis['days'];
 
-				$cost = $cruis['count_tickets'] * $cruis['price'];
+				$cost = $cruis['days'] * $cruis['price'];
 				
 			}
 		}

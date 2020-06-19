@@ -9,12 +9,6 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	$result = $conn->query($sql);
 	$cruis = mysqli_fetch_assoc($result);
 
-	/*
-	product: 1,
-	count: 3
-
-	*/
-
 	/*============================
 	 Добавление круиза в корзину
 	============================*/
@@ -30,7 +24,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		for ($i=0; $i < count($basket["basket"]); $i++) { 
 			// Если круиз в корзине уже существует
 			if($basket["basket"][$i]["cruis_id"] == $cruis['id']){
-				$basket["basket"][$i]["ticket"]++;
+				
 				// Меняем флаг, что такой круиз уже существует
 				$issetCruis = 1;
 			}
@@ -42,7 +36,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 			// Добавляем еще один выбранный круиз в корзину
 			$basket['basket'][] = [ 
 							"cruis_id" => $cruis['id'],
-							"ticket" => 1 ];
+							"days" => $cruis['days'] ];
 		}
 
 	// Если корзина пуста		
@@ -50,7 +44,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		// Добавляем  первый выбранный круиз в корзину
 		$basket = [ 'basket' => [ 
 								["cruis_id" => $cruis['id'],
-								"ticket" => 1 ] ]
+								"days" => $cruis['days'] ] ]
 								];
 	}
 
@@ -63,10 +57,22 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	// Добавляем куки
 	setcookie("basket", $jsonProduct, time() + 60 * 60, "/");
 	
-	// это эхо нам будет показано в аякс запросе, кол. товаров
-	echo json_encode([
-		"count" => count($basket['basket'])
-	]);
+	// Если такой круиз уже есть в корзине
+	if($issetCruis == 1) {
+		$info = [ 'info' =>
+								["count" => count($basket['basket']),
+								"echo_info" => "Такой круиз уже есть в корзине" ]
+								];
+	} else {
+		$info = [ 'info' => 
+								["count" => count($basket['basket']),
+								"echo_info" => "" ]
+								];
+	}
+
+	// это эхо нам будет показано в аякс запросе, кол. товаров и вывод сообщения
+	echo json_encode($info);
+
 }
 
 ?>

@@ -5,7 +5,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/parts/header.php";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 ?>
 <!-- ##### Header ##### -->
-<section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises3.jpg);">
+<section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises1.jpg);">
     <div class="bradcumbContent">
         <h2>YOUR BASKET</h2>
     </div>
@@ -37,9 +37,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
                   <th scope="col">Destinations</th>
                   <th scope="col">Data</th>
                   <th scope="col">Days</th>
-                  <th scope="col">Tickets</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Costs</th>
+                  <th scope="col">Price, $</th>
+                  <th scope="col">Costs, $</th>
                   <th scope="col">Options</th>
                 </tr>
               </thead>
@@ -72,15 +71,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
                               <td><?php echo $cruis['title_cat']; ?></td>
                               <td><?php echo $cruis['arrival']; ?> -- TO -- <?php echo $cruis['departure']; ?></td>
                               <td><?php echo $cruis['data']; ?></td>
-                              <td><?php echo $cruis['days']; ?></td>
                               <td>
-                                <input type="text" name="ticket" size="4" 
+                                <input type="text" name="days" size="4" 
                                         onchange="changeCountTicketsAndCosts(this.value, <?php echo $cruis['price']; ?>,
                                             <?php echo $cruis['id']; ?>)" 
-                                        value="<?php echo $basket['basket'][$i]['ticket']; ?>">
+                                        value="<?php echo $basket['basket'][$i]['days']; ?>">
                               </td>
                               <td><?php echo $cruis['price']; ?></td>
-                              <td id="cost-<?php echo $cruis['id']; ?>"><?php echo $cruis['price'] * $basket['basket'][$i]['ticket']; ?></td>
+                              <td id="cost-<?php echo $cruis['id']; ?>">
+                                <?php echo $cruis['price'] * $basket['basket'][$i]['days']; ?>
+                              </td>
                               <td><button onclick="deleteCruisBasket(this, <?php echo $cruis['id']; ?>)" class="btn btn-danger">Delete</button></td>
                             </tr>
 

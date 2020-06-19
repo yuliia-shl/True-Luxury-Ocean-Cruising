@@ -18,7 +18,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		for ($i=0; $i < count($basket['basket']); $i++) { 
 
 			// Если выбранное id совпадает с id корзины
-			if($basket['basket'][$i]['product_id'] == $_POST['id']){
+			if($basket['basket'][$i]['cruis_id'] == $_POST['id']){
 				// удаляем из корзины круиз
 				unset($basket['basket'][$i]);
 				// сортируем массив, чтоб при удалении круиза все id перезаписались попорядку 
