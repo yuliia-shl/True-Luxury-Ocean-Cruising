@@ -33,19 +33,21 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		                <table class="table">
 		                    <thead class="text-primary">
 		                      <th>Id</th>
-		                      <th>Arrival</th>
-		                      <th>Departure</th>
 		                      <th>Title</th>
+		                      <th>Category Title</th>
 		                      <th>Data</th>
 		                      <th>Days</th>
 		                      <th>Price</th>
+		                      <th>Arrival</th>
+		                      <th>Departure</th>
 		                      <th></th>
 		                    </thead>
 		                    <tbody>
 		                    	<?php
-		                    		$sql = "SELECT destinations.*, categories.title, cruises.*
+		                    		$sql = "SELECT destinations.arrival, destinations.departure, categories.title cat_title, cruises.*
 		                    				FROM destinations, categories, cruises 
-		                    				WHERE categories.id = destinations.categori_id";
+		                    				WHERE categories.id = destinations.categori_id && cruises.destinations_id = destinations.id";
+		                    				// echo $sql;
 		                    		$result = $conn->query($sql);
 
 
@@ -54,12 +56,13 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 				                    	?>
 					                      <tr>
 					                        <td><?php echo $info['id']; ?></td>
-					                        <td><?php echo $info['arrival']; ?></td>
-					                        <td><?php echo $info['departure']; ?></td>
 					                        <td><?php echo $info['title']; ?></td>
+					                        <td><?php echo $info['cat_title']; ?></td>
 					                        <td><?php echo $info['data']; ?></td>
 					                        <td><?php echo $info['days']; ?></td>
 					                        <td><?php echo $info['price']; ?></td>
+					                        <td><?php echo $info['arrival']; ?></td>
+					                        <td><?php echo $info['departure']; ?></td>
 					                        <td class="text-right">
 					                        	<div class="btn btn-danger"><a href="/admin/modules/cruises/delete_cru.php?id=<?php echo $info['id']; ?>">DELETE</a></div>
 					                        	<div class="btn btn-success"><a href="/admin/modules/cruises/edit_cru.php?id=<?php echo $info['id']; ?>">EDIT</a></div> 

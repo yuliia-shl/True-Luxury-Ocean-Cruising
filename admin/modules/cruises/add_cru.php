@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 	// Берем все данные из таблици cruises где id=$_GET["id"]
     $sql = "SELECT * FROM cruises WHERE id=" . $_GET["id"];
     $cruises = $conn->query($sql); // Выполняем запрос
-    var_dump($sql);
+
     // Если строки с sql запроса были найдены
     if ($cruises->num_rows > 0) {  
     	// присваиваем переменной cru_info полученный массив 
@@ -33,9 +33,9 @@ if ( isset($_POST["add"])) {
 	if($_POST['title'] != "" && $_POST['days'] != "" && $_POST['price'] != "" ){
 
 		// Формируем запрос на добавление в БД
-		$sql = "INSERT INTO cruises (id, title, days, price) 
-		VALUES (null, '" . $_POST["title"] . "', '" . $_POST["days"] . "', '" . $_POST["price"] . "')";
-		var_dump($sql);
+		$sql = "INSERT INTO cruises (id, title, data, days, price, destinations_id, images) 
+		VALUES (null, '" . $_POST["title"] . "', current_timestamp(), '" . $_POST["days"] . "', '" . $_POST["price"] . "', '" . $_POST["destinations_id"] . "', '7.jpg')";
+		echo $sql;
 		 // Если запрос выполнился успешно 
 	  	if( $conn->query($sql) ){
 	  		//делаем переадресацию на странице cruises.php
@@ -87,41 +87,16 @@ if ( isset($_POST["add"])) {
 	                        <label for="price">Price</label>
 	                        <input type="text" name="price" class="form-control">
 	                      </div>
+
                 	      <div class="form-group">
-	                        <label for="arrival">Arrival</label>
-	                        <select name="arrival" class="form-control">
+	                        <label for="destinations">Destinations</label>
+	                        <select name="destinations_id" class="form-control">
 	                        	<?php
-		                            $arrival = "SELECT * FROM `destinations`";
-		                            $result_arrival = $conn->query($arrival);
+		                            $sql = "SELECT * FROM `destinations`";
+		                            $result = $conn->query($sql);
 
-		                            while ($arrival = mysqli_fetch_assoc($result_arrival)){
-		                                echo "<option value='". $arrival['categori_id'] ."'>'". $arrival['arrival'] ."'</option>";
-		                            }
-		                        ?>
-	                        </select>
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="departure">Departure</label>
-	                        <select name="departure" class="form-control">
-	                        	<?php
-		                            $destinations = "SELECT * FROM `destinations`";
-		                            $result_destinations = $conn->query($destinations);
-
-		                            while ($destinations = mysqli_fetch_assoc($result_destinations)){
-		                                echo "<option value='". $destinations['categori_id'] ."'>'". $destinations['departure'] ."'</option>";
-		                            }
-		                        ?>
-	                        </select>
-	                      </div>
-  	                      <div class="form-group">
-	                        <label for="categori_id">Сategory</label>
-	                        <select name="categori_id" class="form-control" >  
-		                        <?php
-		                            $categories = "SELECT * FROM `categories`";
-		                            $result_categories = $conn->query($categories);
-
-		                            while ($categorie = mysqli_fetch_assoc($result_categories)){
-		                                echo "<option value='". $categorie['id'] ."'>". $categorie['title'] ."</option>";
+		                            while ($destinations = mysqli_fetch_assoc($result)){
+		                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
 		                            }
 		                        ?>
 	                        </select>
