@@ -20,7 +20,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	============================*/
 	// Если корзина уже существует
 	if( isset($_COOKIE['basket']) ){
-		// Преобразовываем JSON в правильный массив
+		// Преобразовываем формат JSON в массив
 		$basket = json_decode($_COOKIE['basket'], true);
 
 		// Флаг добавлять новый круиз или нет
@@ -28,10 +28,10 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 
 		// Циклом проходим по всему масиву корзины
 		for ($i=0; $i < count($basket["basket"]); $i++) { 
-			// Если товар в корзине уже существует
+			// Если круиз в корзине уже существует
 			if($basket["basket"][$i]["cruis_id"] == $cruis['id']){
 				$basket["basket"][$i]["count"]++;
-				// Меняем флаг, что такой товар уже существует
+				// Меняем флаг, что такой круиз уже существует
 				$issetCruis = 1;
 			}
 		}

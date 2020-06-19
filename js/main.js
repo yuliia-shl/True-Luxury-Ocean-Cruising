@@ -53,3 +53,21 @@ function addToBasket(btn) {
 	var btnGoBasket = document.querySelector("#basket-span");
 		btnGoBasket.innerText = response.count;
 }
+
+/*======================
+Функция удаления выбранного круиза в корзине
+======================*/
+function deleteCruisBasket(obj, id) {
+
+	// Делаем аякс запрос на удаение из корзины
+	var ajax = new XMLHttpRequest();
+		ajax.open("POST", siteURL + "/modules/basket/delete.php" , false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send("id=" + id);
+
+		alert("Продукт удален");
+
+		// удаляем выбранный объект/круиз
+		obj.parentNode.parentNode.remove();
+
+}
