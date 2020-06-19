@@ -7,8 +7,8 @@ define('TELEGRAM_CHATID', '682557841');
 
 $user_id = null;
 
-if( isset($_COOKIE['user_id']) ){
-	$user_id = $_COOKIE['user_id'];
+if( isset($_COOKIE['login']) ){
+	$user_id = $_COOKIE['login'];
 }
 
 ?>

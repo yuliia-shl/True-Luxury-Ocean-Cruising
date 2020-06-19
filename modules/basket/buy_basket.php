@@ -1,9 +1,10 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
+include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
 
 if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 
-	if($user_id){// Если пользователь авторизировался, перезаписываем его телефон
+	if(isset($user_id)){// Если пользователь авторизировался, перезаписываем его телефон
 
 		$sql = "UPDATE `users` SET `phone`= '". $_POST['phone'] ."' WHERE id = " . $user_id;
 		$conn->query($sql);
@@ -14,6 +15,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		$u_code = generateRandomString(20);
 
 		$sql = "INSERT INTO users (name, phone, email, confirm_code, password) VALUES ('". $_POST['name'] ."', '". $_POST['phone'] ."', '". $_POST['email'] ."', '". $u_code ."', '". md5($u_code) ."')";
+		
 
 		if($conn->query($sql)){
 			echo "User add";
@@ -22,8 +24,8 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	}
 
 	// Делаем запрос на добавление заказов в БД
-	$sql = "INSERT INTO orders (`user_id`, `cruis_list`, `address`, `status`)
-			VALUES ('". $user_id ."', '". $_COOKIE['basket']."','". $_POST['addres'] ."', 0 )";
+	$sql = "INSERT INTO orders (`user_id`, `cruis_list`, `address`)
+			VALUES ('". $user_id ."', '". $_COOKIE['basket']."','". $_POST['address'] ."' )";
 
 	// Выполняем запрос
 	if($conn->query($sql)){

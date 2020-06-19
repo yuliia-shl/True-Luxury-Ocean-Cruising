@@ -3,6 +3,7 @@ $page = "basket";
 
 include $_SERVER['DOCUMENT_ROOT'] . "/parts/header.php";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
+include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
 ?>
 <!-- ##### Header ##### -->
 <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises1.jpg);">
