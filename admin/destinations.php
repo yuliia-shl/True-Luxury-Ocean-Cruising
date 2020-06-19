@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 	          	<ol class="breadcrumb">
 	            	<li class="breadcrumb-item"><a href="/admin/index.php">Home</a></li>
 	              	<!-- <li class="breadcrumb-item"><a href="/admin/category.php">Category</a></li> -->
-	            	<li class="breadcrumb-item active">Users</li>
+	            	<li class="breadcrumb-item active">Destinations</li>
 	          	</ol>
 	      	</nav>
 	    </div>
