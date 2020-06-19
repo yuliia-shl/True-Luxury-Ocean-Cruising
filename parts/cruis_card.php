@@ -9,13 +9,16 @@
         <!-- Rooms Text -->
         <div class="rooms-text">
             <div class="line"></div>
-            <h4><?php echo $cruis['title']; ?></h4>
+            <!-- Ccылка на страничку с круизом -->
+            <h4><a href="#"<?php echo $cruis['title']; ?></a></h4>
+
             <p><?php echo $cruis['data']; ?></p>
             <p><?php echo $cruis['days']; ?> days/$<?php echo $cruis['price'] * $cruis['days']; ?></p>
             <p><?php echo $cruis['departure']; ?> TO <?php echo $cruis['arrival']; ?></p>
           
         </div>
-        <!-- Book Room -->
-        <a href="#" class="book-room-btn btn palatin-btn">request a quote</a>
+
+        <!-- Add to the basket -->
+        <button class="book-room-btn btn palatin-btn" onclick="addToBasket(this)" data-id="<?php echo $cruis['id'];?>">request a quote</button>
     </div>
 </div>

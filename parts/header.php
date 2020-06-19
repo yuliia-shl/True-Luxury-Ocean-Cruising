@@ -65,27 +65,47 @@
                                         <a href="/request_info.php">Request information</a>
                                     </li>
                                     <?php
-                                    //Если пользователь Авторизован, то выводим слово Exit
-                                    if(isset ($_COOKIE["login"])) {
-                                        $sql = "SELECT * FROM users WHERE id=" . $_COOKIE["login"];
-                                        $result = mysqli_query($conn, $sql);
-                                        $user = mysqli_fetch_assoc($result);
-                                        ?>
-                                        <li><a style="width: 69px; text-align: center;" href="/modules/users/logout.php"> Exit &#8658;</a></li>
-                                      <?php
-                                    } else { //Если НЕ Авторизован - товыводим лого
-                                      ?>
-                                        <li <?php if($page == "login"){ echo "class='active'"; }?>><a style="width: 69px; text-align: center;" href="/modules/users/login.php"><img src="/img/core-img/user.png"/></a></li>
-                                      <?php
-                                    }
-                                  ?>
+                                        //Если пользователь Авторизован, то выводим слово Exit
+                                        if(isset ($_COOKIE["login"])) {
+                                            $sql = "SELECT * FROM users WHERE id=" . $_COOKIE["login"];
+                                            $result = mysqli_query($conn, $sql);
+                                            $user = mysqli_fetch_assoc($result);
+                                            ?>
+                                            <li><a style="width: 69px; text-align: center;" href="/modules/users/logout.php"> Exit &#8658;</a></li>
+                                          <?php
+                                        } else { //Если НЕ Авторизован - товыводим лого
+                                          ?>
+                                            <li <?php if($page == "login"){ echo "class='active'"; }?>><a style="width: 69px; text-align: center;" href="/modules/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                          <?php
+                                        }
+                                    ?>
                                     <li  class="basket" <?php if($page == "basket"){ echo "class='active'"; }?>>
-                                            <a class="nav-link basket-a" href="/basket.php">
-                                                <img src="/img/bg-img/cart.svg" width="32" alt="" >
-                                                <span class="basket-span">1</span>
-                                            </a>
+                                        <a class="nav-link basket-a" href="/basket.php">
+                                            <img src="/img/bg-img/cart.svg" width="32" alt="" >
+                                           <!-- Делаем span с количеством круизов -->
+                                            <?php
+                                                // Если корзина заполнена
+                                                if( isset($_COOKIE['basket']) ){
+
+                                                    // Преобразовываем JSON в правильный массив
+                                                    $basket = json_decode($_COOKIE['basket'], true);
+                                                    ?>
+                                                    <span id="basket-span" class="basket-span">
+                                                        <?php echo count($basket['basket']); ?>
+                                                    </span>
+                                                     <?php
+
+                                                // Если корзина пуста
+                                                }else{
+                                                  echo "<span id='basket-span' class='basket-span'>0</span>";
+                                                }
+
+                                              ?>
+                                        </a>
                                     </li>
                                 </ul>
+
+                                 
                             </div>
                             
                             <!-- Nav End -->

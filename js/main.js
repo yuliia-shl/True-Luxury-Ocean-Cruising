@@ -1,10 +1,13 @@
 var siteURL = "http://ocean";
 
+/*======================
+Функция для пагинации
+======================*/
 function goToPage(elem) {
 
 	var link = elem.dataset.link;
 
-	// Выполняем аякс запрос, выводим товары по выбранной ссылке
+	// Выполняем аякс запрос, выводим круизы по выбранной ссылке
 	var ajax = new XMLHttpRequest();
 	ajax.open("GET", siteURL + link, false);
 	ajax.send();
@@ -29,5 +32,42 @@ function goToPage(elem) {
 		}
 		
 	}
+
+}
+
+/*======================
+Функция добавления выбранного круиза в корзину
+======================*/
+function addToBasket(btn) {
+
+	// Делаем аякс запрос на добавление в корзину
+	var ajax = new XMLHttpRequest();
+		ajax.open("POST", siteURL + "/modules/basket/add_basket.php", false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send("id=" + btn.dataset.id);
+
+	// Преобразовывает JSON формат в js обект
+	var response = JSON.parse(ajax.response);
+
+	// Меняем значение в блоке basket-span, прописываем количество выбраных товаров
+	var btnGoBasket = document.querySelector("#basket-span");
+		btnGoBasket.innerText = response.count;
+}
+
+/*======================
+Функция удаления выбранного круиза в корзине
+======================*/
+function deleteCruisBasket(obj, id) {
+
+	// Делаем аякс запрос на удаение из корзины
+	var ajax = new XMLHttpRequest();
+		ajax.open("POST", siteURL + "/modules/basket/delete.php" , false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send("id=" + id);
+
+		alert("Продукт удален");
+
+		// удаляем выбранный объект/круиз
+		obj.parentNode.parentNode.remove();
 
 }
