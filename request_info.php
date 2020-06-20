@@ -2,7 +2,7 @@
 $page = "request_info";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
-include $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
 include $_SERVER['DOCUMENT_ROOT'].'/modules/telegramm/new_question.php';
 ?>
   <!-- ##### Breadcumb Area Start ##### -->
