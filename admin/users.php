@@ -23,10 +23,9 @@
             <div class="card">
 				<div class="card-body">
 	                <div class="table-responsive">
-<!-- 						<div class="btn btn-success mb-2">
-							<a href="/admin/modules/categories/add.php">ADD</a>
-						</div>  -->
-
+	                	<div class="card-header ">
+							<h5 class="card-title">Users</h5>
+						</div> 
 		                <table class="table">
 		                    <thead class=" text-primary">
 		                      <th>id</th>

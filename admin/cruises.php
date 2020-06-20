@@ -26,10 +26,11 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
             <div class="card">
 				<div class="card-body">
 	                <div class="table-responsive">
-						<div class="btn btn-success">
-							<a href="/admin/modules/cruises/add_cru.php">Add Cruises</a>
-						</div> 
-
+	                	<div class="card-header ">
+							<h5 class="card-title">Cruises 
+								<a class="btn btn-outline-primary" href="/admin/modules/cruises/add_cru.php">ADD NEW</a>
+							</h5>
+						</div>
 		                <table class="table">
 		                    <thead class="text-primary">
 		                      <th>Id</th>

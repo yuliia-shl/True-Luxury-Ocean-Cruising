@@ -32,7 +32,7 @@
 	                <div class="table-responsive">
 	                	<div class="card-header ">
 							<h5 class="card-title">Categories 
-								<a class="btn btn-info" href="/admin/modules/categories/add.php">ADD NEW</a>
+								<a class="btn btn-outline-primary" href="/admin/modules/categories/add.php">ADD NEW</a>
 							</h5>
 						</div> 
 		                <table class="table">
