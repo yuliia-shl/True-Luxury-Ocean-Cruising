@@ -2,6 +2,8 @@
 $page = "request_info";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
+include $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include $_SERVER['DOCUMENT_ROOT'].'/modules/telegramm/new_question.php';
 ?>
   <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/bg-7.jpg);">
@@ -78,6 +80,9 @@ if ($result->num_rows > 0) {
   
   if ($conn->query($sql)) {
         echo "msg add";
+
+        message_to_telegram('Hello!You have new question!');
+        
     } else {
         echo "ERROR msg";
     }
