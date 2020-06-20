@@ -35,7 +35,6 @@
 
                         <!-- Nav brand -->
                         <a href="/index.php" class="nav-brand"><img src="/img/core-img/trip.png" alt=""></a>
-
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -43,7 +42,6 @@
 
                         <!-- Menu -->
                         <div class="classy-menu">
-
                             <!-- close btn -->
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
@@ -71,11 +69,12 @@
                                             $result = mysqli_query($conn, $sql);
                                             $user = mysqli_fetch_assoc($result);
                                             ?>
+                                            <li <?php if($page == "login"){ echo "class='active'"; }?>><a href="/modules/users/account.php"><img src="/img/core-img/user.png"/></a></li>
                                             <li><a style="width: 69px; text-align: center;" href="/modules/users/logout.php"> Exit &#8658;</a></li>
                                           <?php
                                         } else { //Если НЕ Авторизован - товыводим лого
                                           ?>
-                                            <li <?php if($page == "login"){ echo "class='active'"; }?>><a style="width: 69px; text-align: center;" href="/modules/users/login.php"><img src="/img/core-img/user.png"/></a></li>
+                                            <li <?php if($page == "login"){ echo "class='active'"; }?>><a href="/modules/users/login.php"><img src="/img/core-img/user.png"/></a></li>
                                           <?php
                                         }
                                     ?>
@@ -86,7 +85,6 @@
                                             <?php
                                                 // Если корзина заполнена
                                                 if( isset($_COOKIE['basket']) ){
-
                                                     // Преобразовываем JSON в правильный массив
                                                     $basket = json_decode($_COOKIE['basket'], true);
                                                     ?>
@@ -104,10 +102,7 @@
                                         </a>
                                     </li>
                                 </ul>
-
-                                 
                             </div>
-                            
                             <!-- Nav End -->
                         </div>
                     </nav>
