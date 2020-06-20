@@ -11,23 +11,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 - 5. Сделать проверку на существование юзера по (мейл) в БД
 */
 
-// если существует ГЕТ запрос с кодом
-if( isset($_GET['u_code']) ) {
-	// выбираем из базы данных поля, где код в ГЕТ запросе совпадает с кодом из БД
-	$sql = "SELECT * FROM users WHERE confirm_code='" . $_GET['u_code'] . "' ";
-	$result = $conn->query($sql);
-
-	// и если найдено совпадение, меняем в БД verifided с 0 (который стоит по умолчанию) на 1
-	if($result->num_rows > 0) {
-		$user = mysqli_fetch_assoc($result);
-		$sql = "UPDATE users SET verifided = '1', confirm_code = '' WHERE id =" . $user['id'];
-		if($conn->query($sql)) {
-			// echo "User verifided!";
-			echo "<script>alert(\"User verifided!\");</script>";
-			header("Location: /modules/users/login.php");
-		}
-	}
-}
 
 // Если существует ПОСТ запрос (при нажатии на кнопку Зарегистрироваться)
 if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !=""
@@ -45,24 +28,34 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 
 		// Если пользователь найден в БД
 		if($result->num_rows > 0) {
+
 			$user = mysqli_fetch_assoc($result); //получаем результат
-			$user_id = $user['id']; // записываем айди пользователя, которого нашли в БД
-			
-			// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
-			$password = md5($_POST['pass']);
-			// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
-			$u_code = generateRandomString(20);
 
-			$sql = "UPDATE users SET name = '" . $_POST["usname"] . "', phone = '" . $_POST["usphone"] . "', password = '" . $password . "', confirm_code = '" . $u_code . "' WHERE id= '" . $user_id . "'";
+			// Если у пользователя уже есть пароль в БД
+			if(!isset( $user['password'] )) {
 
-			if($conn->query($sql)) {
-					echo "<h3>Successfully registered.</h3>";
-					$link = "<a href='http://ocean/modules/users/registr.php?u_code=$u_code'>Confirm</a>";
-					mail($_POST['usmail'], 'Registration', $link);
-					header("Location: /modules/users/login.php");// Если данные добавились в БД, то перенаправляем на логин
-				} 
-			// echo $sql;
-			// echo "<h3>Account already exists!</h3>";
+				$user_id = $user['id']; // записываем айди пользователя, которого нашли в БД
+				
+				// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
+				$password = md5($_POST['pass']);
+				// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
+				$u_code = generateRandomString(20);
+
+				$sql = "UPDATE users SET name = '" . $_POST["usname"] . "', phone = '" . $_POST["usphone"] . "', password = '" . $password . "', confirm_code = '" . $u_code . "' WHERE id= '" . $user_id . "'";
+
+				if($conn->query($sql)) {
+						echo "<h3>Successfully registered.</h3>";
+						$link = "<a href='http://ocean/modules/users/login.php?u_code=$u_code'>Confirm</a>";
+						mail($_POST['usmail'], 'Registration', $link);
+						header("Location: /modules/users/login.php");// Если данные добавились в БД, то перенаправляем на логин
+					} 
+				
+					// echo "<h3>Account already exists!</h3>";
+					echo "<script>alert(\"Account already exists!\");</script>";
+			}else {
+				header("Location: /modules/users/login.php");
+			}
+
 		} else { 
 			// Если пользователь НЕ найден в БД, то добавляем данные в БД users
 			// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен

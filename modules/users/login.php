@@ -10,6 +10,24 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 + 4. Сделать проверку на прохождение авторизации
 */
 
+// если существует ГЕТ запрос с кодом
+if( isset($_GET['u_code']) ) {
+    // выбираем из базы данных поля, где код в ГЕТ запросе совпадает с кодом из БД
+    $sql = "SELECT * FROM users WHERE confirm_code='" . $_GET['u_code'] . "' ";
+    $result = $conn->query($sql);
+
+    // и если найдено совпадение, меняем в БД verifided с 0 (который стоит по умолчанию) на 1
+    if($result->num_rows > 0) {
+        $user = mysqli_fetch_assoc($result);
+        $sql = "UPDATE users SET verifided = '1', confirm_code = '' WHERE id =" . $user['id'];
+        if($conn->query($sql)) {
+            // echo "User verifided!";
+            echo "<script>alert(\"User verifided!\");</script>";
+            header("Location: /modules/users/login.php");
+        }
+    }
+}
+
 // Если существует ПОСТ запрос (при нажатии на кнопку SUBMIT)
 // и если поля почта и пароль не пусты
 if (isset($_POST) && $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usmail'] !="" && $_POST['pass'] !="") {

@@ -30,7 +30,7 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usmail'] != "
 		if($conn->query($sql)) {
 			// echo "<h3>Check your email.</h3>";
 			echo "<script>alert(\"Check your email!\");</script>";
-			$link = "<a href='http://ocean/modules/users/registr.php?u_code=$u_code'>Confirm</a>";
+			$link = "<a href='http://ocean/modules/users/login.php?u_code=$u_code'>Confirm</a>";
 			mail($_POST['usmail'], 'Registration', $link);
 		} 
 
