@@ -28,7 +28,7 @@ if(isset($_COOKIE['login'])) {
         // подсчитываем сколько в массиве обьектов и сколько значений у обьектов
         for ($i = 0; $i < count($cruise_order['basket']); $i++) {
             // Вытягиваем инфо из 3х таблиц
-            $sql_cru = "SELECT cruises.*, destinations.departure, destinations.arrival, categories.title
+            $sql_cru = "SELECT cruises.*, destinations.departure, destinations.arrival, categories.title cat_title
 	            FROM cruises, destinations, categories
 	            WHERE cruises.id= '" . $cruise_order['basket'][$i]['cruis_id'] . "'  AND cruises.destinations_id = destinations.id AND destinations.categori_id = categories.id";
 	        // Получаем результат
@@ -38,10 +38,10 @@ if(isset($_COOKIE['login'])) {
     	  <tbody>
 			<td class="center"><?php echo $cruise['data']; ?></td>
             <td class="left"><?php echo $cruise['title']; ?></td>
+            <td class="left"><?php echo $cruise['cat_title']; ?></td>
+            <td class="left"><?php echo $cruise['departure']; ?> TO <?php echo $cruise['arrival']; ?></td>
             <td class="right"><?php echo $cruise_order['basket'][$i]['days']; ?></td>
             <td class="center"><?php echo number_format ($cruise['price'] * $cruise_order['basket'][$i]['days'],2, ',' , ' '); ?></td>
-            <td class="left"><?php echo $cruise['title']; ?></td>
-            <td class="left"><?php echo $cruise['departure']; ?> TO <?php echo $cruise['arrival']; ?></td>
           </tbody>
 			<!--Table body-->
           <?php

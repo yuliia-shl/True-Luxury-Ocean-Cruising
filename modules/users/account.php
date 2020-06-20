@@ -52,10 +52,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 	                    <thead class=" text-primary">
 	                      <th>Departs date</th>
 					      <th>Title</th>
-					      <th>Days</th>
-					      <th>Price,$</th>
 					      <th>Category</th>
 	                      <th>Destination</th>
+                          <th>Days</th>
+                          <th>Price,$</th>                          
 	                    </thead>
 	                    <!--Table body-->
 	                    <?php
