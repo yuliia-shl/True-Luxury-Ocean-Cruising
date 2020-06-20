@@ -10,7 +10,7 @@
 
 <div class="main-panel" id="main-panel">
 	<!--breadcrumb block-->
-	<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+	<nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
 	    <div class="container-fluid">       
 	      	<nav aria-label="breadcrumb">
 	          	<ol class="breadcrumb">
@@ -31,92 +31,60 @@
 				<div class="card-body">
 	                <div class="table-responsive">
 	                	<div class="card-header ">
-						<!-- <div class="btn btn-success"> -->
 							<h5 class="card-title">Orders</h5>
 						</div>
 
 		                <table class="table">
 		                    <thead class=" text-primary">
 		                      <th>id</th>
-		                      <th>Cruises</th>
+		                      <!-- <th>Cruises</th> -->
 		                      <th>User name</th>
 		                      <th>Phone</th>
-		                      <th>Address</th>
+		                      <th>Email</th>
+                   			  <th>Time</th>
+		                      <th>Options</th>
+                    		  <th>Status</th>
+		                      <!-- <th>Address</th> -->
 		                    </thead>
+		                    <!--Table body-->
 		                    <tbody>
 	                    	  <?php
-	                    		$sql = "SELECT orders.*, users.name, users.phone
+	                    		$sql = "SELECT orders.*, users.*
 	                    				FROM orders, users 
 	                    				WHERE orders.user_id = users.id";
 	                    		$result = $conn->query($sql);
 
 	                    		while( $order_info = mysqli_fetch_assoc($result) ) {
-
-	                    			
 			                      ?>
 			                      <tr>
 			                        <td><?php echo $order_info['id']; ?></td>
-			                        <td>
-
-			                        	<!-- Table List Cruises -->
-			                        	<table class="table">
-						                    <thead class="thead-light">
-						                      <th>Title</th>
-						                      <th>Data</th>
-						                      <th>Days</th>
-						                      <th>Cost</th>
-						                    </thead>
-						                    <tbody>
-   
-				                        	<?php 
-				                        	$orders = json_decode($order_info['cruis_list'], true);
-
-				                        	$i = 0;
-				                        	
-
-				                        	while( $i < count($orders['basket'])){
-
-				                        		$sql_cruis = "SELECT * FROM cruises WHERE id= '" . $orders['basket'][$i]['cruis_id'] . "'";
-				                        		$result_cruis = $conn->query($sql_cruis);
-
-				                        		while( $cruis = mysqli_fetch_assoc($result_cruis) ){
-				                        			
-				                        			?>
-
-				                        			 <tr class="table-warning	">
-								                        <td ><?php echo $cruis['title']; ?></td>
-								                        <td><?php echo $cruis['data']; ?></td>
-								                        <td><?php echo $orders['basket'][$i]['days']; ?></td>
-								                        <td>
-								                        	<?php echo $cruis['price'] * $orders['basket'][$i]['days']; ?>
-								                        	<br>/<?php echo  $orders['basket'][$i]['days'];  ?> days
-								                        </td>
-								                        	
-								                    </tr>
-
-										            <?php
-				                        		}
-
-				                        		$i++;
-				                        	}
-
-				                        	?>
-				                        		</tbody>
-							                </table>
-			                        </td>
 			                        <td><?php echo $order_info['name']; ?></td>
 			                        <td><?php echo $order_info['phone']; ?></td>
-			                        <td><?php echo $order_info['address']; ?></td>
-			                       
+			                        <td><?php echo $order_info['email']; ?></td>
+			                        <td><?php echo $order_info['time']; ?></td>
+			                       <!--  <td><?php echo $order_info['address']; ?></td> -->
+			                        <td>
+			                          <div class="btn-group" role="group" aria-label="Basic example">
+			                            <a href="/admin/modules/orders/details.php?id=<?php echo $order_info ['id'] ?>" type="button" class="btn btn-outline-primary">INFO</a>
+			                          </div>
+			                        </td>
 			                        <td> 
-                                        <div class="btn-group" role="group">
+			                          <div class="btn-group" role="group" aria-label="Basic example">
+			                            <?php
+			                              if ($order_info['status'] == "0") {
+			                                echo "<div class=\"btn btn-danger\">NEW!</div>";
+			                              } else {
+			                                echo "<div class=\"btn btn-success\">DONE</div>";
+			                              }
+			                            ?>
+			                          </div>
+<!--                                         <div class="btn-group" role="group">
                                           <div id="orders-new-<?php echo $order_info['id']; ?>" 
                                             class="btn <?php if($order_info['status'] == 0){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 0)">New</div>
 
                                           <div id="orders-sent-<?php echo $order_info['id']; ?>" 
                                             class="btn <?php if($order_info['status'] == 1){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 1)">Sent to customer</div>
-                                          
-                                        </div>
+                                        </div> -->
                                     </td>
 			                      </tr>
 				                  <?php
