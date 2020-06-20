@@ -62,6 +62,9 @@
                                     <li <?php if($page == "request_info"){ echo "class='active'"; }?>>
                                         <a href="/request_info.php">Request information</a>
                                     </li>
+                                    <li <?php if($page == "review"){ echo "class='active'"; }?>>
+                                        <a href="/review.php">Review</a>
+                                    </li>
                                     <?php
                                         //Если пользователь Авторизован, то выводим слово Exit
                                         if(isset ($_COOKIE["login"])) {

@@ -5,13 +5,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
 include $_SERVER['DOCUMENT_ROOT'].'/modules/telegramm/new_question.php';
 ?>
-  <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/bg-7.jpg);">
-        <div class="bradcumbContent">
-            <h2>REQUEST INFORMATION</h2>
-        </div>
-    </section>
-    <!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/bg-7.jpg);">
+    <div class="bradcumbContent">
+        <h2>REQUEST INFORMATION</h2>
+    </div>
+</section>
+<!-- ##### Breadcumb Area End ##### -->
 
 <!-- ##### Registration Form Area Start ##### -->
 <section class="contact-form-area mb-100">

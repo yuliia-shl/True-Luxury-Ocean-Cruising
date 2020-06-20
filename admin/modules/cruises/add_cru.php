@@ -60,59 +60,59 @@ if ( isset($_POST["add"])) {
 	</nav>
 	<br><br><br><br><br>
 	
-	<!-- =======================
-	Блок с формой для добавления
-	=========================-->
-	<div class="content">
-	    <div class="row">
-	        <div class="col-md-8">
-	            <div class="card">
-	                <div class="card-header">
-	                    <h4 class="card-title">Add Cruise</h4>
-	                </div>
-	                <div class="card-body">
+<!-- =======================
+Блок с формой для добавления
+=========================-->
+<div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Add Cruise</h4>
+                </div>
+                <div class="card-body">
 
-	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
+                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
 
-	                      <div class="form-group">
-	                        <label for="title">Title</label>
-	                        <input type="text" name="title" class="form-control">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="days">Days</label>
-	                        <input type="text" name="days" class="form-control">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="price">Price</label>
-	                        <input type="text" name="price" class="form-control">
-	                      </div>
+                      <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="days">Days</label>
+                        <input type="text" name="days" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" class="form-control">
+                      </div>
 
-                	      <div class="form-group">
-	                        <label for="destinations">Destinations</label>
-	                        <select name="destinations_id" class="form-control">
-	                        	<?php
-		                            $sql = "SELECT * FROM `destinations`";
-		                            $result = $conn->query($sql);
+            	      <div class="form-group">
+                        <label for="destinations">Destinations</label>
+                        <select name="destinations_id" class="form-control">
+                        	<?php
+	                            $sql = "SELECT * FROM `destinations`";
+	                            $result = $conn->query($sql);
 
-		                            while ($destinations = mysqli_fetch_assoc($result)){
-		                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
-		                            }
-		                        ?>
-	                        </select>
-	                      </div>
-	                     
-	                      <button type="submit" name="add" id="submit" class="btn btn-primary mb-2">Add</button>
-	                      <!-- <button type="submit" name="back" class="btn btn-primary mb-2">Back</button> -->
-	                      <a href="/admin/cruises.php" type="button" class="btn btn-primary mb-2">Back</a>
-	                    </form>
-	                </div>
-	            </div>     
-	      	</div> <!-- col-md-8 --> 
-	    </div> <!-- End row --> 
-	</div> <!-- End content --> 
-	<!-- ===========================
-	end Блок с формой для добавления 
-	==============================-->
+	                            while ($destinations = mysqli_fetch_assoc($result)){
+	                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
+	                            }
+	                        ?>
+                        </select>
+                      </div>
+                     
+                      <button type="submit" name="add" id="submit" class="btn btn-primary mb-2">Add</button>
+                      <!-- <button type="submit" name="back" class="btn btn-primary mb-2">Back</button> -->
+                      <a href="/admin/cruises.php" type="button" class="btn btn-primary mb-2">Back</a>
+                    </form>
+                </div>
+            </div>     
+      	</div> <!-- col-md-8 --> 
+    </div> <!-- End row --> 
+</div> <!-- End content --> 
+<!-- ===========================
+end Блок с формой для добавления 
+==============================-->
 </div><!-- End main-panel --> 
 
 

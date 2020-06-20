@@ -37,9 +37,9 @@ if (isset($_GET['id'])) {
 	<br><br><br><br><br>
 	<!--Table-->
 
-	<!-- ===================================
-	Блок с формой для просмотра с иформации
-	=====================================-->
+<!-- ===================================
+Блок с формой для просмотра с иформации
+=====================================-->
 	<div class="content">
 	    <div class="row">
 	        <div class="col-md-8">
@@ -70,31 +70,20 @@ if (isset($_GET['id'])) {
 		                        <label for="form_message">Message</label>
 		                        <textarea type="text" name="massage" class="form-control" id="massage" value="<?= $row_sms['text'] ?>">"<?= $row_sms['text'] ?>"</textarea>
 		                    </div>
-							<div class="container">
-							  <div class="row">
-								<div class="col-lg-8 col-lg-offset-2">
-								 <?php
-						            if ($row_sms['Status'] == "NEW") {
-						              ?>
-						                <a href="/admin/modules/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" type="button" class="btn btn-danger">PRESS TO ANSWER!</a>
-						              <?php
-						            } else {
-						            	echo "<div class=\"btn btn-success\">ALREDY ANSWERED</div>";
-						            }
-						         ?>
-						         	<a href="/admin/request_info.php" type="button" class="btn btn-primary mb-2">Back</a>             
-						        </div>
-							  </div>
-							</div> 
+							
 						</form>
 					</div><!-- ./card-body -->
 				</div> <!-- /.card -->
 			</div> <!-- ./col-md-8 -->
 		</div><!-- ./row -->
 	</div>
-	<!-- =======================================
-	END блока с формой для просмотра с иформации
-	=========================================-->
+<!-- =======================================
+END блока с формой для просмотра с иформации
+=========================================-->
+<?php 
+ include $_SERVER['DOCUMENT_ROOT']. '/admin/modules/request_info/send.php';
+?> 
+
 </div> <!-- ./main-panel -->
 
 <?php 

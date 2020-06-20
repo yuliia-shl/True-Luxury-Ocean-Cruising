@@ -41,3 +41,167 @@
 	width: 100%;
 	height: 90px;
 }
+
+ /* CSS для формы */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.2em;
+  background-color: #fff;
+  color: #555;
+}
+
+p {
+  padding: 0 0 20px 0;
+  line-height: 1.7em;
+} 
+
+input, textarea {
+  outline: none;
+  border: none;
+  border: solid 1px #f2f2f2;
+}
+
+h3, h2 {
+  font: normal 85% 'century gothic', arial;
+  margin: 0 0 0 0;
+  padding: 3px 0 5px 0;
+  color: #c76640;
+}
+
+h2 {
+  font-size: 140%;
+}
+
+hr {
+  color: black;
+}
+
+
+.content {
+  text-align: left;
+  width: 30%;
+  padding: 1% 0 0 5px;
+  margin: 0 0 0 27%;
+  float: left;
+}
+
+.reviews {
+  margin-bottom: 4%;
+  font-size: 0.9em;
+  text-align: left;
+  width: 30%;
+  padding: 1% 0 0 5px;
+  margin: 0 0 0 27%;
+  float: left;
+}
+
+.reviews .review_text {
+
+background-color: #f2f2f2;
+    color: #c76640;
+    padding: 1%;
+    border-radius: 9px;
+    border: solid 2px;
+    width: 175%;
+    height: 11%;
+    padding-top: 2%;
+    bottom: 2%;
+    padding-left: 2%;
+    margin: 10px;
+}    
+
+.send {
+
+  margin-bottom: 4%;
+}
+
+.send input[type="text"], input[type="email"], textarea {
+
+  border: solid 1px #c76640;
+  margin-bottom: 2%;
+}
+
+.send input[type="text"], [type="email"] {
+
+  width: 38%;
+  color: #c76640;
+  width: 46%;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.send textarea {
+
+  width: 163%;
+  height: 20%;
+  border-radius: 5px;
+}
+
+.send input[type="submit"] {
+
+  background-color: #d99154;
+  padding: 2%;
+  color: black;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+  /* CSS для рейтинга (звезды) */
+
+.rating {
+    float:left;
+}
+
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:140%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
