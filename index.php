@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
                             <!-- Slide Content -->
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <div class="line" data-animation="fadeInUp" data-delay="300ms"></div>
-                                <h2 data-animation="fadeInUp" data-delay="500ms">TRUE LUXURY CRUISING</h2>
+                                <h2 data-animation="fadeInUp" data-delay="500ms">TRUE LUXURY OCEAN CRUISING</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">On board the world's most luxurious fleet, relax in the comforts of your spacious and immaculate suite, savor the flavors of the exquisite cuisine in our specialty restaurants and make the most of every moment, without a care in the world.</p>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <div class="line" data-animation="fadeInUp" data-delay="300ms"></div>
                                 <h2 data-animation="fadeInUp" data-delay="500ms">IMMERSIVE EXPLORATION</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Experience more than ever before as you sail the world with Regent Seven Seas Cruises. Take in the beauty of each destination with new ways to explore alongside our hallmark inclusion of FREE Unlimited Shore Excursions across more than 450 ports of call throughout the globe.</p>
+                                <p data-animation="fadeInUp" data-delay="700ms">Experience more than ever before as you sail the world with Ocean Cruises. Take in the beauty of each destination with new ways to explore alongside our hallmark inclusion of FREE Unlimited Shore Excursions across more than 450 ports of call throughout the globe.</p>
                             </div>
                         </div>
                     </div>
