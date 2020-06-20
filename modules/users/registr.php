@@ -47,14 +47,13 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 		if($result->num_rows > 0) {
 			$user = mysqli_fetch_assoc($result); //получаем результат
 			$user_id = $user['id']; // записываем айди пользователя, которого нашли в БД
-			var_dump($user_id);
+			
 			// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
 			$password = md5($_POST['pass']);
-			$password2 = md5($_POST['pass2']);
 			// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
 			$u_code = generateRandomString(20);
 
-			$sql = "UPDATE users SET name = '" . $_POST["usname"] . "', phone = '" . $_POST["usphone"] . "', password = '" . $_POST["pass"] . "', confirm_code = '" . $u_code . "' WHERE id= '" . $user_id . "'";
+			$sql = "UPDATE users SET name = '" . $_POST["usname"] . "', phone = '" . $_POST["usphone"] . "', password = '" . $password . "', confirm_code = '" . $u_code . "' WHERE id= '" . $user_id . "'";
 
 			if($conn->query($sql)) {
 					echo "<h3>Successfully registered.</h3>";
@@ -68,7 +67,6 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 			// Если пользователь НЕ найден в БД, то добавляем данные в БД users
 			// для безопасности взлома кодируем пароль, чтоб в базе данных он был не доступен
 			$password = md5($_POST['pass']);
-			$password2 = md5($_POST['pass2']);
 			// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
 			$u_code = generateRandomString(20);
 			
