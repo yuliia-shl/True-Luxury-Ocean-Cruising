@@ -26,8 +26,8 @@
 Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
 <div class="logo">
-  <a href="/admin" class="simple-text logo-mini">CLO</a>
-  <a href="/admin" class="simple-text logo-normal">Cruise line Ocean</a>
+  <a href="/index.php" class="simple-text logo-mini"><img src="/img/core-img/boat.png"> </a>
+  <a href="/index.php" class="simple-text logo-normal">Ocean - Cruise liner</a>
 </div>
 <div class="sidebar-wrapper" id="sidebar-wrapper">
 <?php
