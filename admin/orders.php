@@ -37,19 +37,17 @@
 		                <table class="table">
 		                    <thead class=" text-primary">
 		                      <th>id</th>
-		                      <!-- <th>Cruises</th> -->
 		                      <th>User name</th>
 		                      <th>Phone</th>
 		                      <th>Email</th>
                    			  <th>Time</th>
 		                      <th>Options</th>
                     		  <th>Status</th>
-		                      <!-- <th>Address</th> -->
 		                    </thead>
 		                    <!--Table body-->
 		                    <tbody>
 	                    	  <?php
-	                    		$sql = "SELECT orders.*, users.*
+	                    		$sql = "SELECT orders.time, orders.status, orders.id id_ord, users.*
 	                    				FROM orders, users 
 	                    				WHERE orders.user_id = users.id";
 	                    		$result = $conn->query($sql);
@@ -57,15 +55,14 @@
 	                    		while( $order_info = mysqli_fetch_assoc($result) ) {
 			                      ?>
 			                      <tr>
-			                        <td><?php echo $order_info['id']; ?></td>
+			                        <td><?php echo $order_info['id_ord']; ?></td>
 			                        <td><?php echo $order_info['name']; ?></td>
 			                        <td><?php echo $order_info['phone']; ?></td>
 			                        <td><?php echo $order_info['email']; ?></td>
 			                        <td><?php echo $order_info['time']; ?></td>
-			                       <!--  <td><?php echo $order_info['address']; ?></td> -->
 			                        <td>
 			                          <div class="btn-group" role="group" aria-label="Basic example">
-			                            <a href="/admin/modules/orders/details.php?id=<?php echo $order_info ['id'] ?>" type="button" class="btn btn-outline-primary">INFO</a>
+			                            <a href="/admin/modules/orders/details.php?id=<?php echo $order_info ['id_ord'] ?>" type="button" class="btn btn-outline-primary">INFO</a>
 			                          </div>
 			                        </td>
 			                        <td> 
@@ -78,13 +75,6 @@
 			                              }
 			                            ?>
 			                          </div>
-<!--                                         <div class="btn-group" role="group">
-                                          <div id="orders-new-<?php echo $order_info['id']; ?>" 
-                                            class="btn <?php if($order_info['status'] == 0){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 0)">New</div>
-
-                                          <div id="orders-sent-<?php echo $order_info['id']; ?>" 
-                                            class="btn <?php if($order_info['status'] == 1){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 1)">Sent to customer</div>
-                                        </div> -->
                                     </td>
 			                      </tr>
 				                  <?php

@@ -10,18 +10,12 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 
 // Если пришел get запрос
 if (isset($_GET['id'])) {
-	// $sql_sms = "SELECT * FROM users WHERE id =" . $_GET['id'];
-	// $result_sms = $conn->query($sql_sms);
-	// $row_sms = mysqli_fetch_assoc($result_sms);
-
-	$sql = "SELECT orders.time, orders.cruis_list, orders.status, users.*
+	$sql = "SELECT orders.time, orders.cruis_list, orders.status, orders.id id_ord, users.*
 		FROM orders, users 
 		WHERE orders.user_id = users.id
-		AND users.id=" . $_GET['id'];
+		AND orders.id=" . $_GET['id'];
 	$result = $conn->query($sql);
 	$row_ord = mysqli_fetch_assoc($result);
-
-
 }
 ?>
 
@@ -42,9 +36,9 @@ if (isset($_GET['id'])) {
 	<br><br><br><br><br>
 	<!--Table-->
 
-<!-- ===================================
-Блок с формой для просмотра с иформации
-=====================================-->
+	<!-- ===================================
+	Блок с формой для просмотра с иформации
+	=====================================-->
 	<div class="content">
 	    <div class="row">
 	        <div class="col-md-12">
@@ -77,7 +71,7 @@ if (isset($_GET['id'])) {
 			                <div class="col-md-1 pr-1">
 			                    <div class="form-group">
 			                        <label for="form_email">Order id</label>
-			                        <input type="text" name="mail" class="form-control" disabled="" id="form_email" value="<?= $row_ord['id'] ?>">
+			                        <input type="text" name="mail" class="form-control" disabled="" id="form_email" value="<?= $row_ord['id_ord'] ?>">
 			                    </div>
 			                </div>
 			                <div class="col-md-2 pr-1">
@@ -136,11 +130,10 @@ if (isset($_GET['id'])) {
 	                <div class="container">
 					  <div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
-							<!-- <button type="submit" class="btn btn-warning" name="submit">Send</button> -->
 							 <?php
 			            	if ($row_ord['status'] == "0") {
 			             	 ?>
-				                <a href="/admin/modules/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" type="button" class="btn btn-danger">CLICK TO COMPLETE THE ORDER!</a>
+				                <a href="/admin/modules/orders/change_status.php?id=<?php echo $_GET['id']; ?>" type="button" class="btn btn-danger">CLICK TO COMPLETE THE ORDER!</a>
 				              	<?php
 				            } else {
 				            	echo "<div class=\"btn btn-success\">ORDER ALREADY DONE</div>";
