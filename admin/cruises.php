@@ -38,7 +38,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		                      <th>Category</th>
 		                      <th>Data</th>
 		                      <th>Days</th>
-		                      <th>$$/night</th>
+		                      <th>$/night</th>
 		                      <th>Arrival</th>
 		                      <th>Departure</th>
 		                      <th></th>

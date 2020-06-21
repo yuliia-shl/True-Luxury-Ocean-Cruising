@@ -85,8 +85,8 @@ if(isset($_POST['submit'])){
 	                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
 	                      </div>
 	                      <div class="form-group">
-	                        <label for="price">Price per night, $$</label>
-	                        <input type="text" value="<?php echo $cru_info['price']; ?>" name="price" class="form-control">
+	                        <label for="price">Price per night, $</label>
+	                        <input type="text" value="<?php echo number_format ($cru_info['price'], 2, ',' , ' '); ?>" name="price" class="form-control">
 	                      </div>
                 	      <div class="form-group">
 	                        <label for="destinations">Destinations</label>
@@ -94,7 +94,6 @@ if(isset($_POST['submit'])){
 	                        	<?php
 		                            $sql = "SELECT * FROM `destinations`";
 		                            $result = $conn->query($sql);
-
 		                            while ($destinations = mysqli_fetch_assoc($result)){
 		                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
 		                            }
