@@ -55,7 +55,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 					      <th>Category</th>
 	                      <th>Destination</th>
                           <th>Days</th>
-                          <th>Price,$</th>                          
+                          <th>Total, $</th>                          
 	                    </thead>
 	                    <!--Table body-->
 	                    <?php
