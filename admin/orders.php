@@ -62,7 +62,6 @@
 			                        <td><?php echo $order_info['phone']; ?></td>
 			                        <td><?php echo $order_info['email']; ?></td>
 			                        <td><?php echo $order_info['time']; ?></td>
-			                       <!--  <td><?php echo $order_info['address']; ?></td> -->
 			                        <td>
 			                          <div class="btn-group" role="group" aria-label="Basic example">
 			                            <a href="/admin/modules/orders/details.php?id=<?php echo $order_info ['id'] ?>" type="button" class="btn btn-outline-primary">INFO</a>
@@ -78,13 +77,7 @@
 			                              }
 			                            ?>
 			                          </div>
-<!--                                         <div class="btn-group" role="group">
-                                          <div id="orders-new-<?php echo $order_info['id']; ?>" 
-                                            class="btn <?php if($order_info['status'] == 0){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 0)">New</div>
 
-                                          <div id="orders-sent-<?php echo $order_info['id']; ?>" 
-                                            class="btn <?php if($order_info['status'] == 1){ echo "btn-success"; }else{ echo "btn-danger"; }?>" onclick="changeStatus(<?php echo $order_info['id']; ?>, 1)">Sent to customer</div>
-                                        </div> -->
                                     </td>
 			                      </tr>
 				                  <?php
