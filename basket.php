@@ -78,9 +78,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
                                             <?php echo $cruis['id']; ?>)" 
                                         value="<?php echo $basket['basket'][$i]['days']; ?>">
                               </td>
-                              <td><?php echo number_format ($cruis['price'], 2, ',' , ' '); ?></td>
+                              <td><?php echo number_format ($cruis['price'], 2, ',' , ''); ?></td>
                               <td id="cost-<?php echo $cruis['id']; ?>">
-                                <?php echo number_format ($cruis['price'] * $basket['basket'][$i]['days'], 2, ',' , ' '); ?>
+                                <?php echo number_format ($cruis['price'] * $basket['basket'][$i]['days'], 2, ',' , ''); ?>
                               </td>
                               <td><button onclick="deleteCruisBasket(this, <?php echo $cruis['id']; ?>)" class="btn btn-danger">Delete</button></td>
                             </tr>
