@@ -13,21 +13,15 @@
                 <h2>Contact Info</h2>
                 <p>If you have any further questions, please do not hesitate to contact us.</p>
             </div>
-            <h4 class="wow fadeInUp" data-wow-delay="300ms">Kyiv, Ukrain, Volodimirska str.24 <br><br><p><h5>HOURS OF OPERATION
-                    WEEKDAYS:<h5/></p>
-                    <p>9:30am - 6:00 pm</p><p>
-                    SATURDAY:
-                    Closed</p>
-                    <p>SUNDAY: Closed</p></h4><br><br>
-            <h5 class="wow fadeInUp" data-wow-delay="400ms">+38 073 47 13 708</h5>
-            <h5 class="wow fadeInUp" data-wow-delay="500ms">mail@gmail.com</h5>
-            <!-- Social Info -->
-            <div class="social-info mt-50 wow fadeInUp" data-wow-delay="600ms">
-                <a href="https://www.pinterest.com/carnivalcruise/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/ilovecruiseships/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/princesscruises"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://dribbble.com/tags/cruise_ship"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-            </div>
+            <h4 class="wow fadeInUp" data-wow-delay="300ms">
+                Kyiv, Ukraine, Volodymyrska str.24
+                <p><h5>HOURS OF OPERATION WEEKDAYS:<h5/></p>
+                    <p>9:30am - 6:00 pm</p>
+                    <p>SATURDAY: Closed</p>
+                    <p>SUNDAY: Closed</p>
+            </h4><br>
+            <h5 class="wow fadeInUp" data-wow-delay="300ms">+38 073 47 13 708</h5>
+            <h5 class="wow fadeInUp" data-wow-delay="300ms">mail@gmail.com</h5>
         </div>
     </section>
     <!-- ##### Contact Area End ##### -->
