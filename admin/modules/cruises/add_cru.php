@@ -80,7 +80,7 @@ if ( isset($_POST["add"])) {
                         <input type="text" name="days" class="form-control">
                       </div>
                       <div class="form-group">
-                        <label for="price">Price per night, $$</label>
+                        <label for="price">Price per night, $</label>
                         <input type="text" name="price" class="form-control">
                       </div>
             	        <div class="form-group">

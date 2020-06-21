@@ -8,7 +8,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
 <!-- ##### Header ##### -->
 <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(../img/bg-img/all_cruises1.jpg);">
     <div class="bradcumbContent">
-        <h2>YOUR BASKET</h2>
+        <h2>BOOKING</h2>
     </div>
 </section>
 <!-- ##### Header End ##### -->
@@ -21,7 +21,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
             <div class="col-12">
                 <div class="section-heading">
                     <div class="line-"></div>
-                    <h2>Request</h2>
+                    <h2>Request a Quote</h2>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
                   <th scope="col">Data</th>
                   <th scope="col">Days</th>
                   <th scope="col">Price, $</th>
-                  <th scope="col">Costs, $</th>
+                  <th scope="col">Total, $</th>
                   <th scope="col">Options</th>
                 </tr>
               </thead>
@@ -78,9 +78,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
                                             <?php echo $cruis['id']; ?>)" 
                                         value="<?php echo $basket['basket'][$i]['days']; ?>">
                               </td>
-                              <td><?php echo $cruis['price']; ?></td>
+                              <td><?php echo number_format ($cruis['price'], 2, ',' , ' '); ?></td>
                               <td id="cost-<?php echo $cruis['id']; ?>">
-                                <?php echo $cruis['price'] * $basket['basket'][$i]['days']; ?>
+                                <?php echo number_format ($cruis['price'] * $basket['basket'][$i]['days'], 2, ',' , ' '); ?>
                               </td>
                               <td><button onclick="deleteCruisBasket(this, <?php echo $cruis['id']; ?>)" class="btn btn-danger">Delete</button></td>
                             </tr>

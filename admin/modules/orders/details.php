@@ -93,7 +93,7 @@ if (isset($_GET['id'])) {
 		                      <th>Category</th>
                    			  <th>Destination</th>
 		                      <th>Day</th>
-                    		  <th>Price</th>
+                    		  <th>Total, $</th>
 		                    </thead>
 		                    <?php
 		                    // Если масив заказа существует
