@@ -56,7 +56,7 @@ if(isset($_GET['id'])){
                         </div>
                         
                         <!-- Description -->
-                        <p>Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Integer tempus ligula sem, id feugiat quam egestas et. Donec porttitor varius diam in vulputate. Fusce blandit consequat elit non egestas. Donec tortor odio, consectetur eu justo ut, auctor</p>
+                        <p><?php echo $cruis['description']; ?></p>
                         </div>
                     </div>
                 </div>
