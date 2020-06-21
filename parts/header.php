@@ -34,7 +34,7 @@
                     <nav class="classy-navbar justify-content-between" id="palatinNav">
 
                         <!-- Nav brand -->
-                        <a href="/index.php" class="nav-brand"><img src="/img/core-img/trip.png" alt=""></a>
+                        <a href="/index.php" class="nav-brand"><img src="/img/core-img/boat-big.png" alt=""></a>
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>

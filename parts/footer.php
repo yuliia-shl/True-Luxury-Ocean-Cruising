@@ -6,19 +6,18 @@
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-lg-5">
                     <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img src="/img/core-img/trip.png" alt=""></a>
+                        <a href="/index.php" class="d-block mb-5"><img src="/img/core-img/boat-mdl.png" alt=""></a>
                         <p>Enjoy special Single Supplements starting at only 10% above the advertised per person fare on select voyages. Embark on a solo journey to discover the awe-inspiring wonders of America to the history in Northern Europe to the sun-kissed beaches of the Mediterranean to the iconic landmarks of Canada … the choice is yours. </p>
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 ml-50 col-lg-4">
                     <div class="footer-widget-area mt-50">
                         <h6 class="widget-title mb-5">Find us on the map</h6>
                         <img src="/img/bg-img/footer-map.png" alt="">
                     </div>
                 </div>
-
 
                 <!-- Copywrite Text -->
                 <div class="col-12">
