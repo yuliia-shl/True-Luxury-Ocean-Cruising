@@ -27,9 +27,7 @@
 	                            <input type="phone" name="phone" class="form-control m-3" placeholder="+38(063) 455 24 97"
 	                            value="<?php if (isset($user['phone']) ){ echo $user['phone']; } ?>">
 	                        </div>
-	                        <div class="col-lg-6">
-	                            <input type="text" name="address" class="form-control m-3" placeholder="Киев, ул. Саксаганского 5">
-	                        </div>
+	                        
 	                        <div class="col-12">
 	                            <button type="submit" name="buy" class="btn palatin-btn mt-50">SUBMIT</button>
 	                        </div>
@@ -59,9 +57,6 @@
                         </div>
                         <div class="col-lg-6">
                             <input type="phone" name="phone" class="form-control m-3" placeholder="+38(063) 455 24 97">
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="text" name="address" class="form-control m-3" placeholder="Киев, ул. Саксаганского 5">
                         </div>
                         <div class="col-12">
                             <button type="submit" name="buy" class="btn palatin-btn mt-50">SUBMIT</button>
