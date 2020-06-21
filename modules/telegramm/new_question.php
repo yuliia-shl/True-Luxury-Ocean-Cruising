@@ -14,4 +14,14 @@ function message_to_telegram($text) {
     curl_close( $ch );
     // var_dump($result);
 }
+
+if(isset($_GET['mess'])) {
+    message_to_telegram('Hello!You have new question!');
+    header("Location: /request_info.php");
+}
+
+if(isset($_GET['order'])) {
+    message_to_telegram('Hello!You have new order!');
+    header("Location: /basket.php");
+}
 ?>

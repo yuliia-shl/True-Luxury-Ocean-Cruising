@@ -26,16 +26,15 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 
         } else {//если пользователь не найден
 
-            // Запускаем функцию генерации ссылки со случайной строкой для верификации почты
-            $u_code = generateRandomString(20);
-            
-            $sql = "INSERT INTO users (name, phone, email, confirm_code, password) VALUES ('". $_POST['name'] ."', '". $_POST['phone'] ."', '". $_POST['mail'] ."', '". $u_code ."', '". md5($u_code) ."')";
+            // Добавляем пользователя в таблицу users
+            $sql = "INSERT INTO users (name, phone, email) 
+                    VALUES ('". $_POST['name'] ."', '". $_POST['phone'] ."', '". $_POST['email'] ."')";
           
             if ($conn->query($sql)) {
                 // Получаем id ового пользователя
                 $user_id = $conn->insert_id;
             } else {
-               // echo "ERROR USER";
+                echo "ERROR USER";
             }
         }
           
@@ -44,11 +43,10 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                 VALUES ('" . $user_id . "', '" . $_POST['message'] . "', current_timestamp(), 'NEW' ) ";
           
         if ($conn->query($sql)) {
-
-            message_to_telegram('Hello!You have new question!');
+            header("Location: /modules/telegramm/new_question.php?mess=1");
                 
         } else {
-            //echo "ERROR msg";
+            echo "ERROR msg";
         }
 
     } else {
@@ -58,24 +56,13 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
           
         if ($conn->query($sql)) {
 
-            message_to_telegram('Hello!You have new question!');
+            header("Location: /modules/telegramm/new_question.php?mess=1");
                 
         } else {
-            //echo "ERROR msg";
+            echo "ERROR msg";
         }
     }
  
-}
-
-// Функция генерации случайного кода (строки) для верификации mail
-function generateRandomString($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
 }
 
 ?>
