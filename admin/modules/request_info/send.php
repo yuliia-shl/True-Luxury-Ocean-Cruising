@@ -1,3 +1,6 @@
+<!-- ====================
+Файл для ответа на письма
+=======================-->
 <?php
 if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 	$to = "<myemail@example.com>";
@@ -9,12 +12,9 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 	if (!empty($email) && !empty($subject) && !empty($message)) {
 		$result = mail($to, $subject, $message);
 	}	
-
 	if ($result) {
-
 		echo "Сообщение отправлено.";
-
-	}else{
+	} else{
 
 		echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 			  <strong>Сообщение не отправлено!</strong> Попробуйте еще раз.
@@ -28,15 +28,15 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 <!-- ===================================
 Блок с формой для ответа на письмо
 =====================================-->
-<div class="content">
+<!-- <div class="content">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8"> -->
 			<div class="card">
 				<div class="card-header">
 					<h4 class="card-title">Answer form</h4>
-					</div>
-						<form class="my-form" action="" method="post">
-							<small>* All need to be filed</small>
+				</div>
+					<form class="my-form" action="" method="post">
+						<small>* All need to be filed</small>
 
 						<div class="form-group">
 						  <input type="email" class="form-control" value="<?= $row_sms['email'] ?>" name="email" placeholder="Ваш email" required/>
@@ -57,7 +57,7 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 								 <?php
 				            	if ($row_sms['Status'] == "NEW") {
 				             	 ?>
-				                <a href="/admin/modules/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" type="button" class="btn btn-danger">Answered!</a>
+				                <a href="/admin/modules/request_info/change_status.php?id=<?php echo $_GET['id'] ?>" type="button" class="btn btn-danger">CLICK TO REPLY!</a>
 				              	<?php
 				           		 } else {
 				            	echo "<div class=\"btn btn-success\">ALREDY ANSWERED</div>";
@@ -65,14 +65,14 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 				         		?>
 			         			<a href="/admin/request_info.php" type="button" class="btn btn-primary mb-2">Back</a>             
 			        		</div>
-				  		</div>
-					</div> 
+				  		  </div>
+						</div> 
 					</form>
 				</div>
-			</div>
+			<!-- </div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
 <!-- =======================================

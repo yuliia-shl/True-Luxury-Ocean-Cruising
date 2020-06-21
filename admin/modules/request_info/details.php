@@ -45,7 +45,7 @@ if (isset($_GET['id'])) {
 =====================================-->
 	<div class="content">
 	    <div class="row">
-	        <div class="col-md-8">
+	        <div class="col-md-12">
 	            <div class="card">
 	            	<div class="card-header">
 	                    <h4 class="card-title">Details</h4>
@@ -77,15 +77,16 @@ if (isset($_GET['id'])) {
 						</form>
 					</div><!-- ./card-body -->
 				</div> <!-- /.card -->
+				<?php 
+ include $_SERVER['DOCUMENT_ROOT']. '/admin/modules/request_info/send.php';
+?> 
 			</div> <!-- ./col-md-8 -->
 		</div><!-- ./row -->
 	</div>
 <!-- =======================================
 END блока с формой для просмотра с иформации
 =========================================-->
-<?php 
- include $_SERVER['DOCUMENT_ROOT']. '/admin/modules/request_info/send.php';
-?> 
+
 
 </div> <!-- ./main-panel -->
 

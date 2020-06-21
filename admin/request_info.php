@@ -64,7 +64,7 @@
                         <td><?php echo $row ['Time']?></td>
                         <td>
                           <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="/admin/modules/request_info/details.php?id=<?php echo $row ['id'] ?>" type="button" class="btn btn-info">INFO</a>
+                            <a href="/admin/modules/request_info/details.php?id=<?php echo $row ['id'] ?>" type="button" class="btn btn-outline-primary">INFO</a>
                           </div>
                         </td>
                         <td>
