@@ -102,7 +102,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 				<input type="radio" class="rating" id="star1" name="rating" value="1" /><label for="star1"></label>
 			</div>
 			<br><br><br>
-			<input type="text" name="name" value="<?php echo $res['name']; ?>" placeholder="Name" required>
+			<input type="text" name="name" value="<?php echo $user['name']; ?>" placeholder="Name" required>
 			<input type="email" name="email" name="mail" value="<?php echo $user['email']; ?>" placeholder="E-mail" required>
 			<input type="date" name="date" hidden="true">
 			<textarea name="message" placeholder="Review" required></textarea>

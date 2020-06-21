@@ -95,7 +95,12 @@ if(isset($_POST['submit'])){
 		                            $sql = "SELECT * FROM `destinations`";
 		                            $result = $conn->query($sql);
 		                            while ($destinations = mysqli_fetch_assoc($result)){
-		                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
+
+		                                echo "<option value='". $destinations['id'] ."'";
+		                                if ($cru_info['destinations_id'] == $destinations['id']) {
+		                                	echo "selected";
+		                                }
+	                                	echo ">". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
 		                            }
 		                        ?>
 	                        </select>
