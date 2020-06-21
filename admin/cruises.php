@@ -85,3 +85,8 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
     </div>
     <!--End Table-->
     </div>
+
+<!--Footer-->
+<?php 
+include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/footer.php';
+?> 
