@@ -11,10 +11,8 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		
 	} else {// Если пользователя нету в БД users
 
-		// Запускаем функцию генерации ссылки со случайной строкой для верификации почты
-		$u_code = generateRandomString(20);
-
-		$sql = "INSERT INTO users (name, phone, email, confirm_code, password) VALUES ('". $_POST['name'] ."', '". $_POST['phone'] ."', '". $_POST['email'] ."', '". $u_code ."', '". md5($u_code) ."')";
+		// Добавляем пользователя в таблицу users
+		$sql = "INSERT INTO users (name, phone, email) VALUES ('". $_POST['name'] ."', '". $_POST['phone'] ."', '". $_POST['email'] ."')";
 		
 
 		if($conn->query($sql)){
@@ -32,17 +30,6 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 		setcookie("basket", "", 0, "/");
 		header("Location: /modules/basket/send_message.php");
 	}
-}
-
-// Функция генерации случайного кода (строки) для верификации mail
-function generateRandomString($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
 }
 
 ?>
