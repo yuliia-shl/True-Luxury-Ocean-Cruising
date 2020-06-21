@@ -9,7 +9,10 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 
 // Если пришел get запрос
 if (isset($_GET['id'])) {
-	$sql_sms = "SELECT * FROM message WHERE id =" . $_GET['id'];
+	$sql_sms = $sql = "SELECT message.*, users.name, users.phone, users.email 
+                        FROM message, users
+                        WHERE message.user_id = users.id && message.id =" . $_GET['id'];
+
 	$result_sms = $conn->query($sql_sms);
 	$row_sms = mysqli_fetch_assoc($result_sms);
 

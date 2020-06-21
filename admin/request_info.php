@@ -48,7 +48,10 @@
                 <!--Table body-->
                 <tbody>
                   <?php
-                    $sql = "SELECT * FROM message";
+                    $sql = "SELECT message.*, users.name, users.phone, users.email 
+                            FROM message, users
+                            WHERE message.user_id = users.id";
+
                     //наш конект выполнит запрос который мы передадим sql
                     $result = $conn->query($sql);
                     while ($row = mysqli_fetch_assoc($result)) {
