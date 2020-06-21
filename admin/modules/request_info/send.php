@@ -1,3 +1,30 @@
+<?php
+if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
+	$to = "<myemail@example.com>";
+	$email = $_POST['email'];
+	$subject = $_POST["theme"];
+	$page = 'Страница спасибо за комментарий'; 
+	$message = ''.$_POST['message'].''; 
+
+	if (!empty($email) && !empty($subject) && !empty($message)) {
+		$result = mail($to, $subject, $message);
+	}	
+
+	if ($result) {
+
+		echo "Сообщение отправлено.";
+
+	}else{
+
+		echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <strong>Сообщение не отправлено!</strong> Попробуйте еще раз.
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			  </button></div>';
+	}
+}
+?>
+
 <!-- ===================================
 Блок с формой для ответа на письмо
 =====================================-->
@@ -47,27 +74,7 @@
 	</div>
 </div>
 
-<?php
-$to = "<myemail@example.com>";
-$email = $_POST['email'];
-$subject = $_POST["theme"];
-$page = 'Страница спасибо за комментарий'; 
-$message = ''.$_POST['message'].''; 
-if (!empty($email) && !empty($subject) && !empty($message)) {
-$result = mail($to, $subject, $message);
-}	
-if ($result) {
 
-echo "Сообщение отправлено.";
-
-}else{
-echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-	  <strong>Сообщение не отправлено!</strong> Попробуйте еще раз.
-	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	  <span aria-hidden="true">&times;</span>
-	  </button></div>';
-}
-?>
 <!-- =======================================
 END блока с формой для ответа на письмо
 =========================================-->
