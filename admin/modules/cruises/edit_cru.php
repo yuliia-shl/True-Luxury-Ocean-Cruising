@@ -34,7 +34,8 @@ if(isset($_POST['submit'])){
             SET title='". $_POST['title'] ."',
                 days='". $_POST['days'] ."',
                 price='". $_POST['price'] ."',
-                destinations_id='" . $_POST["destinations_id"] . "'              
+                destinations_id='" . $_POST["destinations_id"] . "',
+                description='" . $_POST["desc"] . "'
             WHERE id =" . $_GET['id'];
 
     // Выполняем запрос
@@ -84,10 +85,9 @@ if(isset($_POST['submit'])){
 	                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
 	                      </div>
 	                      <div class="form-group">
-	                        <label for="price">Price</label>
+	                        <label for="price">Price per night, $$</label>
 	                        <input type="text" value="<?php echo $cru_info['price']; ?>" name="price" class="form-control">
 	                      </div>
-
                 	      <div class="form-group">
 	                        <label for="destinations">Destinations</label>
 	                        <select name="destinations_id" class="form-control">
@@ -101,7 +101,10 @@ if(isset($_POST['submit'])){
 		                        ?>
 	                        </select>
 	                      </div>
-	                     
+	                      <div class="form-group">
+	                        <label for="desc">Description</label>
+	                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control"><?php echo $cru_info['description']; ?></textarea>
+	                      </div>
 	                      <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
 		                  <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
 	                    </form>

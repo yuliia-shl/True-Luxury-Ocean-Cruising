@@ -9,7 +9,6 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 
 // Если пришел get запрос, после нажатия на кнопку Add
 if(isset($_GET['id'])){
-
 	// Берем все данные из таблици cruises где id=$_GET["id"]
     $sql = "SELECT * FROM cruises WHERE id=" . $_GET["id"];
     $cruises = $conn->query($sql); // Выполняем запрос
@@ -30,11 +29,11 @@ if(isset($_POST['back'])) {
 // Если была нажата кнопка Добавить 
 if ( isset($_POST["add"])) {
 	// Если поля все заполнены
-	if($_POST['title'] != "" && $_POST['days'] != "" && $_POST['price'] != "" ){
+	if($_POST['title'] != "" && $_POST['days'] != "" && $_POST['price'] != "" && $_POST['desc'] != "" ){
 
 		// Формируем запрос на добавление в БД
-		$sql = "INSERT INTO cruises (id, title, data, days, price, destinations_id, images) 
-		VALUES (null, '" . $_POST["title"] . "', current_timestamp(), '" . $_POST["days"] . "', '" . $_POST["price"] . "', '" . $_POST["destinations_id"] . "', '7.jpg')";
+		$sql = "INSERT INTO cruises (id, title, data, days, price, destinations_id, description, images) 
+		VALUES (null, '" . $_POST["title"] . "', current_timestamp(), '" . $_POST["days"] . "', '" . $_POST["price"] . "', '" . $_POST["destinations_id"] . "',  '" . $_POST["desc"] . "','7.jpg')";
 		echo $sql;
 		 // Если запрос выполнился успешно 
 	  	if( $conn->query($sql) ){
@@ -43,7 +42,6 @@ if ( isset($_POST["add"])) {
 	  	}
 	}
 }
-
 ?>
 
 <div class="main-panel" id="main-panel">
@@ -73,7 +71,6 @@ if ( isset($_POST["add"])) {
                 <div class="card-body">
 
                     <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
-
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control">
@@ -83,24 +80,26 @@ if ( isset($_POST["add"])) {
                         <input type="text" name="days" class="form-control">
                       </div>
                       <div class="form-group">
-                        <label for="price">Price</label>
+                        <label for="price">Price per night, $$</label>
                         <input type="text" name="price" class="form-control">
                       </div>
-
-            	      <div class="form-group">
+            	        <div class="form-group">
                         <label for="destinations">Destinations</label>
                         <select name="destinations_id" class="form-control">
                         	<?php
-	                            $sql = "SELECT * FROM `destinations`";
-	                            $result = $conn->query($sql);
+                            $sql = "SELECT * FROM `destinations`";
+                            $result = $conn->query($sql);
 
-	                            while ($destinations = mysqli_fetch_assoc($result)){
-	                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
-	                            }
+                            while ($destinations = mysqli_fetch_assoc($result)){
+                                echo "<option value='". $destinations['id'] ."'>'". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
+                            }
 	                        ?>
                         </select>
                       </div>
-                     
+                      <div class="form-group">
+                        <label for="desc">Description</label>
+                        <textarea type="text" name="desc" class="form-control"></textarea>
+                      </div>
                       <button type="submit" name="add" id="submit" class="btn btn-primary mb-2">Add</button>
                       <!-- <button type="submit" name="back" class="btn btn-primary mb-2">Back</button> -->
                       <a href="/admin/cruises.php" type="button" class="btn btn-primary mb-2">Back</a>
