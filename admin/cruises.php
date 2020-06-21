@@ -35,10 +35,10 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		                    <thead class="text-primary">
 		                      <th>Id</th>
 		                      <th>Title</th>
-		                      <th>Category Title</th>
+		                      <th>Category</th>
 		                      <th>Data</th>
 		                      <th>Days</th>
-		                      <th>Price</th>
+		                      <th>$$/night</th>
 		                      <th>Arrival</th>
 		                      <th>Departure</th>
 		                      <th></th>
@@ -47,7 +47,8 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 		                    	<?php
 		                    		$sql = "SELECT destinations.arrival, destinations.departure, categories.title cat_title, cruises.*
 		                    				FROM destinations, categories, cruises 
-		                    				WHERE categories.id = destinations.categori_id && cruises.destinations_id = destinations.id";
+		                    				WHERE categories.id = destinations.categori_id && cruises.destinations_id = destinations.id
+		                    				ORDER BY cruises.id";
 		                    				// echo $sql;
 		                    		$result = $conn->query($sql);
 
@@ -61,7 +62,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/admin/parts/header.php';
 					                        <td><?php echo $info['cat_title']; ?></td>
 					                        <td><?php echo $info['data']; ?></td>
 					                        <td><?php echo $info['days']; ?></td>
-					                        <td><?php echo $info['price']; ?></td>
+					                        <td><?php echo number_format ($info['price'],2, ',' , ' '); ?></td>
 					                        <td><?php echo $info['arrival']; ?></td>
 					                        <td><?php echo $info['departure']; ?></td>
 					                        <td class="text-right">
