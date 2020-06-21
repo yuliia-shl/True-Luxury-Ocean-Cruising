@@ -16,15 +16,13 @@ include $_SERVER['DOCUMENT_ROOT']. "/parts/header.php";
     <section class="rooms-area section-padding-0-0">
         <div class="container">
            <!-- ##### Buttons ##### -->
-                    <!-- Buttons -->
-                    <div class="palatin-buttons-area mb-50">
-                        <h2 class="pt-4">Sort
-                            <a href="#" class="btn palatin-btn m-2">All</a>
-                            <a href="#" class="btn palatin-btn m-2">Category 1</a>
-                            <a href="#" class="btn palatin-btn m-2">Category 2</a>
-                            <a href="#" class="btn palatin-btn m-2">Category 3</a>
-                        </h2>
-                    </div>
+
+            <!-- Sort List Categories -->
+            <?php
+            include $_SERVER['DOCUMENT_ROOT'] . "/parts/sort_categories.php";
+            ?>
+            <!-- Sort List Categories  End -->
+
             <div class="row justify-content-center" id="list-cruises">
                 <?php
 
