@@ -12,13 +12,14 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	/*============================
 	 Добавление круиза в корзину
 	============================*/
+	$issetCruis = 0; 
 	// Если корзина уже существует
 	if( isset($_COOKIE['basket']) ){
 		// Преобразовываем формат JSON в массив
 		$basket = json_decode($_COOKIE['basket'], true);
 
 		// Флаг добавлять новый круиз или нет
-		$issetCruis = 0; 
+		
 
 		// Циклом проходим по всему масиву корзины
 		for ($i=0; $i < count($basket["basket"]); $i++) { 
