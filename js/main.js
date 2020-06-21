@@ -109,3 +109,5 @@ function changeCountTicketsAndCosts(days, price, id){
 		changeCosts.innerText = response.cost;
 
 }
+
+

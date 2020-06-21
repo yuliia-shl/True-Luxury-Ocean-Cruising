@@ -42,6 +42,7 @@
     <!-- Active js -->
     <script src="/js/active.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/cruis.js"></script>
 </body>
 
 </html>
