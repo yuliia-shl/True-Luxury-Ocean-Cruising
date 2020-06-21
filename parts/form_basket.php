@@ -17,15 +17,17 @@
 	                <!-- Contact Form -->
 	                <form method="POST" action="/modules/basket/buy_basket.php">
 	                    <div class="row">
+
 	                        <div class="col-lg-6">
-	                            <input type="hidden" name="name" value="<?php echo $user['login']; ?>">
+	                            <input type="text" name="name" class="form-control m-3" value="<?php echo $user['name']; ?>">
 	                        </div>
-	                        <div class="col-lg-6">
-	                            <input type="hidden" name="email" value="<?php echo $user['email']; ?>">
-	                        </div>
+	                        
 	                        <div class="col-lg-6">
 	                            <input type="phone" name="phone" class="form-control m-3" placeholder="+38(063) 455 24 97"
 	                            value="<?php if (isset($user['phone']) ){ echo $user['phone']; } ?>">
+	                        </div>
+	                        <div class="col-lg-6">
+	                            <input type="hidden" name="email" value="<?php echo $user['email']; ?>">
 	                        </div>
 	                        
 	                        <div class="col-12">

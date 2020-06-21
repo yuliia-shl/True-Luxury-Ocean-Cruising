@@ -44,7 +44,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 				$sql = "UPDATE users SET name = '" . $_POST["usname"] . "', phone = '" . $_POST["usphone"] . "', password = '" . $password . "', confirm_code = '" . $u_code . "' WHERE id= '" . $user_id . "'";
 
 				if($conn->query($sql)) {
-						echo "<h3>Successfully registered.</h3>";
+						//echo "<h3>Successfully registered.</h3>";
 						$link = "<a href='http://ocean/modules/users/login.php?u_code=$u_code'>Confirm</a>";
 						mail($_POST['usmail'], 'Registration', $link);
 						header("Location: /modules/users/login.php");// Если данные добавились в БД, то перенаправляем на логин
@@ -68,7 +68,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usname'] !="
 
 			// Если данные добавились в БД, то отправляем письмо подтверждения
 			if($conn->query($sql)) {
-				echo "<h3>Successfully registered.</h3>";
+				//echo "<h3>Successfully registered.</h3>";
 				$link = "<a href='http://ocean/modules/users/login.php?u_code=$u_code'>Confirm</a>";
 				mail($_POST['usmail'], 'Registration', $link);
 				$user_id = $conn->insert_id;
