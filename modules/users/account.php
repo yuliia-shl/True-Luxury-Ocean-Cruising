@@ -81,7 +81,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 	            <div class="col-12">
 	                <!-- Contact Form -->
 						<?php
-							include $_SERVER['DOCUMENT_ROOT'].'/modules/users/acc_edit.php';
+							include $_SERVER['DOCUMENT_ROOT'].'/modules/users/acc_form_edit.php';
 						?>
 	            </div>
 	       	  </div>
