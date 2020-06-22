@@ -86,52 +86,64 @@ if(isset($_POST['submit'])){
 	                    <h4 class="card-title">Edit Cruise</h4>
 	                </div>
 	                <div class="card-body">
-	                <div id="avatar-edit">
-	                	<div id="avatar" class="form-left-block"> 
-							<img src="/img/bg-img/<?php echo $cru_info['images']; ?>">
-						 </div>	
-	                    <form method="POST" enctype="multipart/form-data">
-	                      <div class="form-group">
-	                        <label for="title">Title</label>
-	                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="days">Days</label>
-	                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="price">Price per night, $</label>
-	                        <input type="text" value="<?php echo number_format ($cru_info['price'], 2, ',' , ' '); ?>" name="price" class="form-control">
-	                      </div>
-                	      <div class="form-group">
-	                        <label for="destinations">Destinations</label>
-	                        <select name="destinations_id" class="form-control">
-	                        	<?php
-		                            $sql = "SELECT * FROM `destinations`";
-		                            $result = $conn->query($sql);
-		                            while ($destinations = mysqli_fetch_assoc($result)){
+		                <div id="avatar-edit">
+		                	<div class="row">
+		                		
+		                		<!-- Edit Form  --> 
+								<div class="col-md-8">
+				                    <form method="POST" enctype="multipart/form-data">
+				                      <div class="form-group">
+				                        <label for="title">Title</label>
+				                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control">
+				                      </div>
+				                      <div class="form-group">
+				                        <label for="days">Days</label>
+				                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
+				                      </div>
+				                      <div class="form-group">
+				                        <label for="price">Price per night, $</label>
+				                        <input type="text" value="<?php echo number_format ($cru_info['price'], 2, ',' , ' '); ?>" name="price" class="form-control">
+				                      </div>
+			                	      <div class="form-group">
+				                        <label for="destinations">Destinations</label>
+				                        <select name="destinations_id" class="form-control">
+				                        	<?php
+					                            $sql = "SELECT * FROM `destinations`";
+					                            $result = $conn->query($sql);
+					                            while ($destinations = mysqli_fetch_assoc($result)){
 
-		                                echo "<option value='". $destinations['id'] ."'";
-		                                if ($cru_info['destinations_id'] == $destinations['id']) {
-		                                	echo "selected";
-		                                }
-	                                	echo ">". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
-		                            }
-		                        ?>
-	                        </select>
-	                      </div>
-	                      <div class="form-group">
-	                        <label for="desc">Description</label>
-	                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control"><?php echo $cru_info['description']; ?></textarea>
-	                      </div>
-	                      <div>
-							<p>Change pictures</p>
-							<input name="images" type="file" />
-						  </div>
-	                      <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
-		                  <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
-	                    </form>
-	                </div>
+					                                echo "<option value='". $destinations['id'] ."'";
+					                                if ($cru_info['destinations_id'] == $destinations['id']) {
+					                                	echo "selected";
+					                                }
+				                                	echo ">". $destinations['arrival'] ." TO " . $destinations['departure'] . "'</option>";
+					                            }
+					                        ?>
+				                        </select>
+				                      </div>
+				                      <div class="form-group">
+				                        <label for="desc">Description</label>
+				                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control"><?php echo $cru_info['description']; ?></textarea>
+				                      </div>
+				                      <div>
+										<p>Change pictures</p>
+										<input name="images" type="file" />
+									  </div>
+				                      <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
+					                  <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
+				                    </form>
+				                 </div>
+				                 <!-- Edit Form  End--> 
+
+				                 <!-- Image --> 
+				                 <div class="col-md-4">
+				                	<div id="avatar" class="form-left-block"> 
+										<img src="/img/bg-img/<?php echo $cru_info['images']; ?>">
+									 </div>	
+								</div>
+								<!-- Image  End-->
+							</div>
+		                </div>
 	                </div>
 	            </div>     
 	      	</div> <!-- col-md-8 --> 
