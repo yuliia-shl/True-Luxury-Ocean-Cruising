@@ -3,6 +3,12 @@
  =======================-->
 
 <ul class="nav">
+  <li class="nav-item <?php if($page == "home"){ echo 'active'; } ?>">
+    <a class="nav-link" href="/admin">
+        <i class="now-ui-icons design_app"></i>
+      <p>Home</p>
+    </a>
+  </li>
   <li class="nav-item <?php if($page == "users"){ echo 'active'; } ?>">
     <a class="nav-link" href="/admin/users.php">
       <i class="now-ui-icons users_single-02"></i>
