@@ -15,7 +15,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
         $user_id = 0;
 
         // Пишем запрос, чтоб проверить есть ли такой имейл в таблице users
-        $sql = "SELECT * FROM users WHERE email ='" . $_POST['email'] . "'";
+        $sql = "SELECT * FROM users WHERE email ='" . $_POST['usmail'] . "'";
         $result = $conn->query($sql);
         //если пользователь найден
         if ($result->num_rows > 0) {
@@ -25,7 +25,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 			
         } else {//если пользователь не найден
             
-            $sql = "INSERT INTO users (name, email) VALUES ('". $_POST['name'] ."', '". $_POST['email'] ."')";
+            $sql = "INSERT INTO users (name, email) VALUES ('". $_POST['usname'] ."', '". $_POST['usmail'] ."')";
             if ($conn->query($sql)) {
                 // Получаем id ового пользователя
                 $user_id = $conn->insert_id;
