@@ -17,7 +17,6 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
         // Пишем запрос, чтоб проверить есть ли такой имейл в таблице users
         $sql = "SELECT * FROM users WHERE email ='" . $_POST['email'] . "'";
         $result = $conn->query($sql);
-		var_dump($sql);
         //если пользователь найден
         if ($result->num_rows > 0) {
             $user = mysqli_fetch_assoc($result);
@@ -27,7 +26,6 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
         } else {//если пользователь не найден
             
             $sql = "INSERT INTO users (name, email) VALUES ('". $_POST['name'] ."', '". $_POST['email'] ."')";
-           var_dump($sql);
             if ($conn->query($sql)) {
                 // Получаем id ового пользователя
                 $user_id = $conn->insert_id;
@@ -67,86 +65,109 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 <!-- ##### Breadcumb Area Start ##### -->
 <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style=" background-image: url(/img/bg-img/basket.jpg);">
     <div class="bradcumbContent">
-        <h2>YOUR REVIEW</h2>
+        <h2>CUISE REVIEWS</h2>
     </div>
 </section>
-    <!-- ##### Breadcumb Area End ##### -->
-<?php
-//выбираем с БД все поля
- $sql = "SELECT * FROM `review` ORDER BY id DESC";
-//сщединяемся 
- $result = $conn->query($sql);
- ?>
-<div class="content">
-	<h2>Your Review</h2>
-	<br>
-	<div class="send"> 
-		<?php
-                // Если пользователь авторизировался
-                if( isset($_COOKIE['login']) ){ 
-                	// "SELECT message.*, users.name, users.phone, users.email 
-                 //            FROM message, users
-                 //            WHERE message.user_id = users.id";
-                    $sql = "SELECT review.*, users.name, users.email FROM review, users WHERE review.user_id=" . $_COOKIE['login'];
-                    var_dump($sql);
+<!-- ##### Breadcumb Area End ##### -->
 
-                    $user = mysqli_fetch_assoc( $conn->query($sql) );
-                    ?>
-		<form method="post" action="" id="review">   
-			<h3>Please leave your score!</h3>
-			<div class="rating">
-				<input type="radio" class="rating" id="star5" name="rating" value="5" /><label for="star5"></label>
-				<input type="radio" class="rating" id="star4" name="rating" value="4" /><label for="star4"></label>
-				<input type="radio" class="rating" id="star3" name="rating" value="3" /><label for="star3"></label>
-				<input type="radio" class="rating" id="star2" name="rating" value="2" /><label for="star2"></label>
-				<input type="radio" class="rating" id="star1" name="rating" value="1" /><label for="star1"></label>
-			</div>
-			<br><br><br>
-			<input type="text" name="name" value="<?php echo $user['name']; ?>" placeholder="Name" required>
-			<input type="email" name="email" name="mail" value="<?php echo $user['email']; ?>" placeholder="E-mail" required>
-			<input type="date" name="date" hidden="true">
-			<textarea name="message" placeholder="Review" required></textarea>
-			<input type="submit" name="add" value="Send">
-		</form>
-		<?php
-        
-                } else { 
-                    ?>
-                    <form method="post" action="" id="review">   
-			<h3>Please leave your score!</h3>
-			<div class="rating">
-				<input type="radio" class="rating" id="star5" name="rating" value="5" /><label for="star5"></label>
-				<input type="radio" class="rating" id="star4" name="rating" value="4" /><label for="star4"></label>
-				<input type="radio" class="rating" id="star3" name="rating" value="3" /><label for="star3"></label>
-				<input type="radio" class="rating" id="star2" name="rating" value="2" /><label for="star2"></label>
-				<input type="radio" class="rating" id="star1" name="rating" value="1" /><label for="star1"></label>
-			</div>
-			<br><br><br>
-			<input type="text" name="name" placeholder="Name" required>
-			<input type="email" name="email" name="mail" placeholder="E-mail" required>
-			<input type="date" name="date" hidden="true">
-			<textarea name="message" placeholder="Review" required></textarea>
-			<input type="submit" name="add" value="Send">
-		</form>
-		 <?php
-                }
-                ?>
-	</div>
-</div>
-<br>
-<br>
-<br>
+<section class="contact-form-area mb-100 ml-100" style="text-align: center;">
+  <div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading mb-1">
+                    <div class="line-"></div>
+                    <h2>Your Review</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Contact Form -->
+                <form method="post" action="" id="review">
+                    <h3>Please leave your score!</h3>
+                    <div class="rating">
+                        <input type="radio" class="rating" id="star5" name="rating" value="5" /><label for="star5"></label>
+                        <input type="radio" class="rating" id="star4" name="rating" value="4" /><label for="star4"></label>
+                        <input type="radio" class="rating" id="star3" name="rating" value="3" /><label for="star3"></label>
+                        <input type="radio" class="rating" id="star2" name="rating" value="2" /><label for="star2"></label>
+                        <input type="radio" class="rating" id="star1" name="rating" value="1" /><label for="star1"></label>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <?php
+                        // Если пользователь авторизировался
+                        if( isset($_COOKIE['login']) ){
+                            $sql = "SELECT * FROM users WHERE id=" . $_COOKIE['login'];
+                            $user = mysqli_fetch_assoc( $conn->query($sql) );
+                            ?>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="usname" placeholder="Your Name" value="<?php echo $user['name']; ?>">
+                            </div>
+
+                            <div class="col-lg-6">
+                                <input type="email" class="form-control" name="usmail" placeholder="Email Address" value="<?php echo $user['email']; ?>">
+                            </div>
+                          <?php
+                        } else { 
+                            ?>
+                           <div class="col-lg-6">
+                                <input type="text" class="form-control" name="usname" placeholder="Your Name">
+                            </div>
+
+                            <div class="col-lg-6">
+                                <input type="email" class="form-control" name="usmail" placeholder="Email Address">
+                            </div>
+                          <?php
+                        }
+                        ?>
+
+                        <input type="date" name="date" hidden="true">
+                        <div class="col-lg-12">
+                            <textarea style="font-size: 16px;" class="form-control" name="message" rows="4" cols="40" placeholder="Please type your review here" required></textarea>
+                        </div>
+                        <div class="col-8">
+                            <button type="submit" class="btn palatin-btn">SEND</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<br><br><br>
+
 <?php
+
+ //выбираем с БД все поля
+ $sql = "SELECT review.*, users.name, users.id
+ FROM review, users 
+ WHERE review.user_id = users.id
+ ORDER BY review.date DESC";
+ //соединяемся 
+ $result = $conn->query($sql);
+
  while($res = mysqli_fetch_assoc($result)) { ?>
-	<div class="reviews"> 
-		<div class="review_text">
-			 <b>Name:</b> <? $_COOKIE['login'] ?><b>Date:</b> <?= date("d.m.y | <b></b> H.i", strtotime($res['date'])) ?> | <b>Score:</b> <?= $res['rating'] ?>/5
-			<hr>
-			<br>
-			<?= $res['message'] ?> <br>
-		</div>
-	</div>
+<!--     <section class="about-us-area">
+        <div class="container">
+            <div class="row align-items-center mb-100">
+          <div class="col-12"> -->
+            <div class="reviews"> 
+                <div class="review_text">
+                     <b>Name:</b> <?= $res['name'] ?> <b >Date:</b> <?= date("d.m.y | <b></b> H.i", strtotime($res['date'])) ?> | <b>Score:</b> <?= $res['rating'] ?>/5
+                    <hr>
+                    <?= $res['message'] ?> <br>
+                </div>
+            </div>
+<!--           </div>
+        </div>
+      </div> -->
+    <section>
 <?php 
 } 
 ?>
 
+<?php
+// include $_SERVER['DOCUMENT_ROOT'].'/parts/footer.php';
+?>
