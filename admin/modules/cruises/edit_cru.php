@@ -29,21 +29,34 @@ if(isset($_POST['back'])) {
 
 // Если была нажата кнопка редактировать
 if(isset($_POST['submit'])){
+
+	if( isset($_POST["images"]) && $_POST["images"] != "" ){
+		$images = "`images`='". $_POST["images"] ."'";
+	}
+	if(isset($_FILES['images']) && //проверяем загружали ли мы фото
+		//проверяем тип файла
+		$_FILES['images']["type"] == "image/jpg" || $_FILES['images']["type"] == "image/png"){  
+
+    	$uploaddir = '/img/bg-img/';    //путь куда мы сохраним фото   
+    	$prev = $uploaddir.basename($_FILES['images']['name']); // сохраняем фото в папке /img/bg-img
+     	
+     	$images = "`images`='". $_FILES['images']['name'] ."'";
+     	}
     // Пишем запрос на обновление данных в БД в направлениях
   	$sql = "UPDATE cruises 
             SET title='". $_POST['title'] ."',
                 days='". $_POST['days'] ."',
                 price='". $_POST['price'] ."',
                 destinations_id='" . $_POST["destinations_id"] . "',
-                description='" . $_POST["desc"] . "'
+                description='" . $_POST["desc"] . "',
+                images='". $_FILES['images']['name'] ."'
             WHERE id =" . $_GET['id'];
-
+            var_dump($sql);
     // Выполняем запрос
   	$result = $conn->query($sql);
   	// Перезагружаем эту же страничку
-  	header("Location: /admin/modules/cruises/edit_cru.php?id=" . $_GET['id']);
+  	header("Location: /admin/modules/cruises/edit_cru.php?id=" . $_GET['id']);	
 }
-
 ?>
 
 <div class="main-panel" id="main-panel">
@@ -63,7 +76,7 @@ if(isset($_POST['submit'])){
 	<br><br><br><br><br>
 
 	<!-- =======================
-	Блок с формой для добавления
+	Блок с формой для редактирования
 	=========================-->
 	<div class="content">
 	    <div class="row">
@@ -73,9 +86,11 @@ if(isset($_POST['submit'])){
 	                    <h4 class="card-title">Edit Cruise</h4>
 	                </div>
 	                <div class="card-body">
-
-	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
-
+	                <div id="avatar-edit">
+	                	<div id="avatar" class="form-left-block"> 
+							<img src="/img/bg-img/<?php echo $cru_info['images']; ?>">
+						 </div>	
+	                    <form method="POST" enctype="multipart/form-data">
 	                      <div class="form-group">
 	                        <label for="title">Title</label>
 	                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control">
@@ -109,9 +124,14 @@ if(isset($_POST['submit'])){
 	                        <label for="desc">Description</label>
 	                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control"><?php echo $cru_info['description']; ?></textarea>
 	                      </div>
+	                      <div>
+							<p>Change pictures</p>
+							<input name="images" type="file" />
+						  </div>
 	                      <button type="submit" name="submit" id="submit" class="btn btn-primary mb-2">Edit</button>
 		                  <button type="submit" name="back" class="btn btn-primary mb-2">Back</button>
 	                    </form>
+	                </div>
 	                </div>
 	            </div>     
 	      	</div> <!-- col-md-8 --> 

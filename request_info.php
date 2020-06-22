@@ -55,9 +55,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                 VALUES ('" . $user_id . "', '" . $_POST['message'] . "', current_timestamp(), 'NEW' ) ";
           
         if ($conn->query($sql)) {
-
-            header("Location: /modules/telegramm/new_question.php?mess=1");
-                
+            header("Location: /modules/telegramm/new_question.php?mess=1");            
         } else {
             echo "ERROR msg";
         }

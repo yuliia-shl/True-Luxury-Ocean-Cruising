@@ -29,11 +29,11 @@ if(isset($_POST['back'])) {
 // Если была нажата кнопка Добавить 
 if ( isset($_POST["add"])) {
 	// Если поля все заполнены
-	if($_POST['title'] != "" && $_POST['days'] != "" && $_POST['price'] != "" && $_POST['desc'] != "" ){
+	if($_POST['title'] != "" && $_POST['days'] != "" && $_POST['price'] != "" && $_POST['desc'] != ""){
 
 		// Формируем запрос на добавление в БД
 		$sql = "INSERT INTO cruises (id, title, data, days, price, destinations_id, description, images) 
-		VALUES (null, '" . $_POST["title"] . "', current_timestamp(), '" . $_POST["days"] . "', '" . $_POST["price"] . "', '" . $_POST["destinations_id"] . "',  '" . $_POST["desc"] . "','7.jpg')";
+		VALUES (null, '" . $_POST["title"] . "', current_timestamp(), '" . $_POST["days"] . "', '" . $_POST["price"] . "', '" . $_POST["destinations_id"] . "',  '" . $_POST["desc"] . "', '". $_FILES['images']['name'] ."')";
 		echo $sql;
 		 // Если запрос выполнился успешно 
 	  	if( $conn->query($sql) ){
@@ -43,7 +43,6 @@ if ( isset($_POST["add"])) {
 	}
 }
 ?>
-
 <div class="main-panel" id="main-panel">
 	<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
 	    <div class="container-fluid">   
@@ -99,6 +98,10 @@ if ( isset($_POST["add"])) {
                       <div class="form-group">
                         <label for="desc">Description</label>
                         <textarea type="text" name="desc" class="form-control"></textarea>
+                      </div>
+                      <div>
+                        <p>Change pictures</p>
+                        <input name="images" type="file" />
                       </div>
                       <button type="submit" name="add" id="submit" class="btn btn-primary mb-2">Add</button>
                       <!-- <button type="submit" name="back" class="btn btn-primary mb-2">Back</button> -->
