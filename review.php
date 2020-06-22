@@ -1,6 +1,6 @@
-<!-- =====================
-	Файл для отзывов
-=======================-->
+<!-- ===================================
+			Файл для отзывов
+=====================================-->
 <?php
 //название раздела
 $page = "review"; 
@@ -11,6 +11,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 
     // Если пользователь не авторизировался
     if( !isset($_COOKIE['login']) ){ 
+
         $user_id = 0;
 
         // Пишем запрос, чтоб проверить есть ли такой имейл в таблице users
@@ -23,6 +24,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
             $user_id = $user['id']; 
 			
         } else {//если пользователь не найден
+            
             $sql = "INSERT INTO users (name, email) VALUES ('". $_POST['usname'] ."', '". $_POST['usmail'] ."')";
             if ($conn->query($sql)) {
                 // Получаем id ового пользователя
@@ -31,22 +33,23 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                echo "ERROR USER";
             }
         }
-
-	// добавление отзыва в БД
+	
+	// добовление отзыва в БД
     $sql = "INSERT INTO review (`user_id`, `date`, `rating`, `message`) 
             VALUES ('" . $user_id . "', current_timestamp(), '" . $_POST['rating'] . "', '" . $_POST['message'] . "') ";
+      
     if ($conn->query($sql)) {
-            echo "msg";
+            // echo "msg";
         } else {
             echo "ERROR msg";
         }
     } else {
         // добавление отзыва в БД
-    $sql = "INSERT INTO review (`user_id`, `date`, `rating`, `message`) 
-            VALUES ('" . $_COOKIE['login'] . "', current_timestamp(), '" . $_POST['rating'] . "', '" . $_POST['message'] . "') ";
 
+        $sql = "INSERT INTO review (`user_id`, `date`, `rating`, `message`) 
+            VALUES ('" . $_COOKIE['login'] . "', current_timestamp(), '" . $_POST['rating'] . "', '" . $_POST['message'] . "') ";
         if ($conn->query($sql)) {
-             echo "msg";
+             // echo "msg";
         } else {
             echo "ERROR msg";
         }
@@ -93,21 +96,21 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                             $user = mysqli_fetch_assoc( $conn->query($sql) );
                             ?>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="usname" placeholder="Your Name" value="<?php echo $user['name']; ?>">
+                                <input type="text" class="form-control" name="usname" placeholder="Your Name" value="<?php echo $user['name']; ?>" required>
                             </div>
 
                             <div class="col-lg-6">
-                                <input type="email" class="form-control" name="usmail" placeholder="Email Address" value="<?php echo $user['email']; ?>">
+                                <input type="email" class="form-control" name="usmail" placeholder="Email Address" value="<?php echo $user['email']; ?>" required>
                             </div>
                           <?php
                         } else { 
                             ?>
                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="usname" placeholder="Your Name">
+                                <input type="text" class="form-control" name="usname" placeholder="Your Name" required>
                             </div>
 
                             <div class="col-lg-6">
-                                <input type="email" class="form-control" name="usmail" placeholder="Email Address">
+                                <input type="email" class="form-control" name="usmail" placeholder="Email Address" required>
                             </div>
                           <?php
                         }
