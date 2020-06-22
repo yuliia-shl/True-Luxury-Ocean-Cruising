@@ -72,19 +72,19 @@ if ( isset($_POST["add"])) {
                     <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" required>
                       </div>
                       <div class="form-group">
                         <label for="days">Days</label>
-                        <input type="text" name="days" class="form-control">
+                        <input type="text" name="days" class="form-control" required>
                       </div>
                       <div class="form-group">
                         <label for="price">Price per night, $</label>
-                        <input type="text" name="price" class="form-control">
+                        <input type="text" name="price" class="form-control" required>
                       </div>
             	        <div class="form-group">
                         <label for="destinations">Destinations</label>
-                        <select name="destinations_id" class="form-control">
+                        <select name="destinations_id" class="form-control" required>
                         	<?php
                             $sql = "SELECT * FROM `destinations`";
                             $result = $conn->query($sql);
@@ -97,7 +97,7 @@ if ( isset($_POST["add"])) {
                       </div>
                       <div class="form-group">
                         <label for="desc">Description</label>
-                        <textarea type="text" name="desc" class="form-control"></textarea>
+                        <textarea type="text" name="desc" class="form-control" required></textarea>
                       </div>
                       <div>
                         <p>Change pictures</p>

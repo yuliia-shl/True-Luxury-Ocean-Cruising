@@ -82,7 +82,7 @@ function generateRandomString($length = 10) {
                 	<div>Your email address is not confirmed. If you didn't receive the verification link during account creation, please enter your e-mail address below and an e-mail will be sent to you with instructions on how to reset your password.</div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <input type="email" class="form-control" name="usmail" placeholder="Email Address">
+                            <input type="email" class="form-control" name="usmail" placeholder="Email Address" required>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn palatin-btn mt-50">SUBMIT</button>

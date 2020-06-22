@@ -98,18 +98,18 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                     <form method="POST">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="name" value="<?php echo $user['name']; ?>">
+                                <input type="text" class="form-control" name="name" value="<?php echo $user['name']; ?>" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="phone" value="<?php echo $user['phone']; ?>">
+                                <input type="text" class="form-control" name="phone" value="<?php echo $user['phone']; ?>" required>
                             </div>
                             <div class="col-lg-6">
-                              <input type="hidden" class="form-control" name="mail" value="<?php echo $user['email']; ?>">
+                              <input type="hidden" class="form-control" name="mail" value="<?php echo $user['email']; ?>" required>
                             </div>
 
 
                             <div class="col-lg-12">
-                              <textarea style="font-size: 16px;" class="form-control" name="message" rows="4" cols="40" placeholder="Please type your question here"></textarea>
+                              <textarea style="font-size: 16px;" class="form-control" name="message" rows="4" cols="40" placeholder="Please type your question here" required></textarea>
                             </div>
 
                             <div class="col-12">

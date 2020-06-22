@@ -74,11 +74,11 @@ if(isset($_POST['submit'])){
 	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
 		                    <div class="form-group">
 		                      <label for="arrival">Arrival</label>
-		                      <input type="text" name="arrival" class="form-control" id="arrival" value="<?php echo $des_info['arrival']; ?>">
+		                      <input type="text" name="arrival" class="form-control" id="arrival" value="<?php echo $des_info['arrival']; ?>" required>
 		                    </div>
 		                    <div class="form-group">
 		                      <label for="departure">Departure</label>
-		                      <input type="text" name="departure" class="form-control" id="departure" value="<?php echo $des_info['departure']; ?>">
+		                      <input type="text" name="departure" class="form-control" id="departure" value="<?php echo $des_info['departure']; ?>" required>
 		                    </div>
 	                      	<div class="form-group">
 		                        <label for="categori_id">Сategory</label>

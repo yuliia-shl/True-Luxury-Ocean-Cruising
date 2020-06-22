@@ -121,19 +121,19 @@ function generateRandomString($length = 10) {
                 <form method="POST">
                     <div class="row">
                     	<div class="col-lg-12">
-                            <input type="text" class="form-control" name="usname" placeholder="Your Name">
+                            <input type="text" class="form-control" name="usname" placeholder="Your Name" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="phone" class="form-control" name="usphone" placeholder="Telephone Number">
+                            <input type="phone" class="form-control" name="usphone" placeholder="Telephone Number" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="email" class="form-control" name="usmail" placeholder="Email Address">
+                            <input type="email" class="form-control" name="usmail" placeholder="Email Address" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="password" class="form-control" name="pass" placeholder="Password">
+                            <input type="password" class="form-control" name="pass" placeholder="Password"required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="password" class="form-control" name="pass2" placeholder="Confirm Password">
+                            <input type="password" class="form-control" name="pass2" placeholder="Confirm Password"required>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn palatin-btn mt-50">REGISTER</button>

@@ -19,15 +19,15 @@
 	                    <div class="row">
 
 	                        <div class="col-lg-6">
-	                            <input type="text" name="name" class="form-control m-3" value="<?php echo $user['name']; ?>">
+	                            <input type="text" name="name" class="form-control m-3" value="<?php echo $user['name']; ?>" placeholder="Your Name" required>
 	                        </div>
 	                        
 	                        <div class="col-lg-6">
-	                            <input type="phone" name="phone" class="form-control m-3" placeholder="+38(063) 455 24 97"
-	                            value="<?php if (isset($user['phone']) ){ echo $user['phone']; } ?>">
+	                            <input type="phone" name="phone" class="form-control m-3" placeholder="Telephone Number"
+	                            value="<?php if (isset($user['phone']) ){ echo $user['phone']; } ?>" required>
 	                        </div>
 	                        <div class="col-lg-6">
-	                            <input type="hidden" name="email" value="<?php echo $user['email']; ?>">
+	                            <input type="hidden" name="email" value="<?php echo $user['email']; ?>" required>
 	                        </div>
 	                        
 	                        <div class="col-12">
@@ -52,13 +52,13 @@
                 <form method="POST" action="/modules/basket/buy_basket.php">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" name="name" class="form-control m-3" placeholder="Alan">
+                            <input type="text" name="name" class="form-control m-3" placeholder="Your Name" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="email" name="email" class="form-control m-3" name="usmail" placeholder="Email Address">
+                            <input type="email" name="email" class="form-control m-3" name="usmail" placeholder="Email Address" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="phone" name="phone" class="form-control m-3" placeholder="+38(063) 455 24 97">
+                            <input type="phone" name="phone" class="form-control m-3" placeholder="Telephone Number" required>
                         </div>
                         <div class="col-12">
                             <button type="submit" name="buy" class="btn palatin-btn mt-50">SUBMIT</button>

@@ -63,7 +63,7 @@ if ( isset($_POST["edit"]) && $_POST["title"] != ""  ) {
 	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
 	                      <div class="form-group">
 	                        <label for="title">Title</label>
-	                        <input type="text" name="title" class="form-control" value="<?php echo $row_cat['title']; ?>">
+	                        <input type="text" name="title" class="form-control" value="<?php echo $row_cat['title']; ?>" required>
 	                      </div>
 	                     
 	                      <button type="submit" name="edit" id="submit" class="btn btn-primary mb-2">Edit</button>

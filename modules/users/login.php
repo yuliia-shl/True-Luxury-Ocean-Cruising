@@ -82,10 +82,10 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"]=="POST" && $_POST['usmail'] !=""
                 <form method="POST">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="email" class="form-control" name="usmail" placeholder="Email Address">
+                            <input type="email" class="form-control" name="usmail" placeholder="Email Address" required>
                         </div>
                         <div class="col-lg-6">
-                            <input type="password" class="form-control" name="pass" placeholder="Password">
+                            <input type="password" class="form-control" name="pass" placeholder="Password" required>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn palatin-btn mt-50">SUBMIT</button>

@@ -77,11 +77,11 @@ if(isset($_POST['add'])){
 	                    <form method="POST" active="" id="form-edit-products" enctype="multipart/form-data">
 	                      <div class="form-group">
 	                        <label for="arrival">Arrival</label>
-	                        <input type="text" name="arrival" class="form-control" id="arrival" value="">
+	                        <input type="text" name="arrival" class="form-control" id="arrival" value="" required>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="departure">Departure</label>
-	                        <input type="text" name="departure" class="form-control" id="departure" value="">
+	                        <input type="text" name="departure" class="form-control" id="departure" value="" required>
 	                      </div>
 	                      <div class="form-group">
 	                        <label for="categori_id">Сategory</label>

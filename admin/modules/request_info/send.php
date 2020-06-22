@@ -35,11 +35,11 @@ if ( isset($_POST["add"]) && $_POST["theme"] != "" ) {
 		<small>* All need to be filed</small>
 
 		<div class="form-group">
-		  <input type="email" class="form-control" value="<?= $row_sms['email'] ?>" name="email" placeholder="email" required/>
+		  <input type="email" class="form-control" value="<?= $row_sms['email'] ?>" name="email" placeholder="email" required>
 		</div>
 
 		<div class="form-group">
-		  <input type="text" class="form-control" name="theme" placeholder="Тема сообщения" required/>
+		  <input type="text" class="form-control" name="theme" placeholder="Тема сообщения" required>
 		</div>
 
 		<div class="form-group">

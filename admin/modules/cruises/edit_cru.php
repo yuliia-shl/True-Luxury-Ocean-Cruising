@@ -94,15 +94,15 @@ if(isset($_POST['submit'])){
 				                    <form method="POST" enctype="multipart/form-data">
 				                      <div class="form-group">
 				                        <label for="title">Title</label>
-				                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control">
+				                        <input type="text" value="<?php echo $cru_info['title']; ?>" name="title" class="form-control" required>
 				                      </div>
 				                      <div class="form-group">
 				                        <label for="days">Days</label>
-				                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control">
+				                        <input type="text" value="<?php echo $cru_info['days']; ?>" name="days" class="form-control" required>
 				                      </div>
 				                      <div class="form-group">
 				                        <label for="price">Price per night, $</label>
-				                        <input type="text" value="<?php echo number_format ($cru_info['price'], 2, ',' , ' '); ?>" name="price" class="form-control">
+				                        <input type="text" value="<?php echo number_format ($cru_info['price'], 2, ',' , ' '); ?>" name="price" class="form-control" required>
 				                      </div>
 			                	      <div class="form-group">
 				                        <label for="destinations">Destinations</label>
@@ -123,7 +123,7 @@ if(isset($_POST['submit'])){
 				                      </div>
 				                      <div class="form-group">
 				                        <label for="desc">Description</label>
-				                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control"><?php echo $cru_info['description']; ?></textarea>
+				                        <textarea type="text" value="<?php echo $cru_info['desc']; ?>" name="desc" class="form-control" required><?php echo $cru_info['description']; ?></textarea>
 				                      </div>
 				                      <div>
 										<p>Change pictures</p>

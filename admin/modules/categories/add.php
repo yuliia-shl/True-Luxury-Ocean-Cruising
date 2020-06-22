@@ -51,7 +51,7 @@ if ( isset($_POST["add"]) && $_POST["title"] != ""  ) {
 	                      
 	                      <div class="form-group">
 	                        <label for="title">Title</label>
-	                        <input type="text" name="title" class="form-control">
+	                        <input type="text" name="title" class="form-control" required>
 	                      </div>
 	                     
 	                      <button type="submit" name="add" id="submit" class="btn btn-primary mb-2">Add</button>
