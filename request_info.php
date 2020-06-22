@@ -3,7 +3,7 @@ $page = "request_info";
 include $_SERVER['DOCUMENT_ROOT'].'/configs/db.php';
 include $_SERVER['DOCUMENT_ROOT'].'/parts/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/configs/configs.php';
-include $_SERVER['DOCUMENT_ROOT'].'/modules/telegramm/new_question.php';
+//include $_SERVER['DOCUMENT_ROOT'].'/modules/telegramm/new_question.php';
 
 //Если пришел POST запрос
 if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
@@ -43,7 +43,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                 VALUES ('" . $user_id . "', '" . $_POST['message'] . "', current_timestamp(), 'NEW' ) ";
           
         if ($conn->query($sql)) {
-            header("Location: /modules/telegramm/new_question.php?mess=1");
+            header("Location: /modules/telegramm/send_message.php?mess=1");
                 
         } else {
             echo "ERROR msg";
@@ -55,7 +55,7 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
                 VALUES ('" . $user_id . "', '" . $_POST['message'] . "', current_timestamp(), 'NEW' ) ";
           
         if ($conn->query($sql)) {
-            header("Location: /modules/telegramm/new_question.php?mess=1");            
+            header("Location: /modules/telegramm/send_message.php?mess=1");            
         } else {
             echo "ERROR msg";
         }

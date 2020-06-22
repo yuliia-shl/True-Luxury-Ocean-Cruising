@@ -28,7 +28,7 @@ if( isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" ){
 	// Выполняем запрос
 	if($conn->query($sql)){
 		setcookie("basket", "", 0, "/");
-		header("Location: /modules/basket/send_message.php");
+		header("Location: /modules/telegramm/send_message.php?order=1");
 	}
 }
 
